@@ -4,6 +4,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "framework"; 
+  networking.firewall.checkReversePath = "loose"; # Necessary for tailscale + mullvad (see https://github.com/tailscale/tailscale/issues/10319)
 
   # Tailscale to connect to my other devices
   services.tailscale = {

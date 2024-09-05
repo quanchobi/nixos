@@ -57,8 +57,8 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # Boot splash screen. Handled by stylix.
-    plymouth.enable = true;
+    # Boot splash screen. Handled by stylix. lmao buggin
+    # plymouth.enable = true;
     # Needs to be enabled for plymouth to handle the luks screen
   };
 
