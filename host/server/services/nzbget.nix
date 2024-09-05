@@ -1,5 +1,5 @@
 {
-  services.lidarr = {
+  services.nzbget = { 
     enable = true;
     group = "multimedia";
   };

@@ -81,8 +81,7 @@
       # Xeon E5-2683v4, Arc A380, 64gb ecc ddr4 2333mhz, 2 8tb hdds, 4 2tb hdds..
       server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-
-	      modules = [];
+	      modules = [ ./host/server/configuration.nix ];
       };
 
       # i9-11900k engineering sample, 2080 super, 64gb ddr4 3200mhz. 
