@@ -10,7 +10,6 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1723293904,
         "narHash": "sha256-b+uqzj+Wa6xgMS9aNbX4I+sXeb5biPDi39VgvSFqFvU=",
         "owner": "ryantm",
         "repo": "agenix",
@@ -29,7 +28,6 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1721306136,
         "narHash": "sha256-VKPsIGf3/a+RONBipx4lEE4LXG2sdMNkWQu22LNQItg=",
         "owner": "Aylur",
         "repo": "ags",
@@ -51,7 +49,6 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1721135360,
         "narHash": "sha256-ZhSA0e45UxiOAjEVqkym/aULh0Dt+KHJLNda7bjx9UI=",
         "owner": "anyrun-org",
         "repo": "anyrun",
@@ -69,7 +66,6 @@
         "fromYaml": "fromYaml"
       },
       "locked": {
-        "lastModified": 1708890466,
         "narHash": "sha256-LlrC09LoPi8OPYOGPXegD72v+//VapgAqhbOFS3i8sc=",
         "owner": "SenchoPens",
         "repo": "base16.nix",
@@ -85,7 +81,6 @@
     "base16-fish": {
       "flake": false,
       "locked": {
-        "lastModified": 1622559957,
         "narHash": "sha256-PebymhVYbL8trDVVXxCvZgc0S5VxI7I1Hv4RMSquTpA=",
         "owner": "tomyun",
         "repo": "base16-fish",
@@ -101,7 +96,6 @@
     "base16-foot": {
       "flake": false,
       "locked": {
-        "lastModified": 1696725948,
         "narHash": "sha256-65bz2bUL/yzZ1c8/GQASnoiGwaF8DczlxJtzik1c0AU=",
         "owner": "tinted-theming",
         "repo": "base16-foot",
@@ -117,7 +111,6 @@
     "base16-helix": {
       "flake": false,
       "locked": {
-        "lastModified": 1720809814,
         "narHash": "sha256-numb3xigRGnr/deF7wdjBwVg7fpbTH7reFDkJ75AJkY=",
         "owner": "tinted-theming",
         "repo": "base16-helix",
@@ -133,7 +126,6 @@
     "base16-kitty": {
       "flake": false,
       "locked": {
-        "lastModified": 1665001328,
         "narHash": "sha256-aRaizTYPpuWEcvoYE9U+YRX+Wsc8+iG0guQJbvxEdJY=",
         "owner": "kdrag0n",
         "repo": "base16-kitty",
@@ -149,7 +141,6 @@
     "base16-tmux": {
       "flake": false,
       "locked": {
-        "lastModified": 1696725902,
         "narHash": "sha256-wDPg5elZPcQpu7Df0lI5O8Jv4A3T6jUQIVg63KDU+3Q=",
         "owner": "tinted-theming",
         "repo": "base16-tmux",
@@ -165,7 +156,6 @@
     "base16-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1716150083,
         "narHash": "sha256-ZMhnNmw34ogE5rJZrjRv5MtG3WaqKd60ds2VXvT6hEc=",
         "owner": "tinted-theming",
         "repo": "base16-vim",
@@ -186,7 +176,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1700795494,
         "narHash": "sha256-gzGLZSiOhf155FW7262kdHo2YDeugp3VuIFb4/GGng0=",
         "owner": "lnl7",
         "repo": "nix-darwin",
@@ -208,7 +197,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1722113426,
         "narHash": "sha256-Yo/3loq572A8Su6aY5GP56knpuKYRvM2a1meP9oJZCw=",
         "owner": "numtide",
         "repo": "devshell",
@@ -230,7 +218,6 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1723867392,
         "narHash": "sha256-tGb8HmrVx2zTBiRfZAbq/yFqx7M6HHkFRvjiNblG9JY=",
         "owner": "rycee",
         "repo": "nur-expressions",
@@ -246,7 +233,6 @@
     },
     "flake-compat": {
       "locked": {
-        "lastModified": 1696426674,
         "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
         "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
         "revCount": 57,
@@ -261,7 +247,6 @@
     "flake-compat_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1673956053,
         "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
         "owner": "edolstra",
         "repo": "flake-compat",
@@ -282,7 +267,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1717285511,
         "narHash": "sha256-iKzJcpdXih14qYVcZ9QC9XuZYnPc6T8YImb6dX166kw=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
@@ -303,7 +287,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1722555600,
         "narHash": "sha256-XOQkdLafnb/p9ij77byFQjDf5m5QYl9b2REiVClC+x4=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
@@ -318,7 +301,6 @@
     },
     "flake-utils": {
       "locked": {
-        "lastModified": 1629284811,
         "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
         "owner": "numtide",
         "repo": "flake-utils",
@@ -336,7 +318,6 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1710146030,
         "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
@@ -352,7 +333,6 @@
     "fromYaml": {
       "flake": false,
       "locked": {
-        "lastModified": 1689549921,
         "narHash": "sha256-iX0pk/uB019TdBGlaJEWvBCfydT6sRq+eDcGPifVsCM=",
         "owner": "SenchoPens",
         "repo": "fromYaml",
@@ -382,7 +362,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1723202784,
         "narHash": "sha256-qbhjc/NEGaDbyy0ucycubq4N3//gDFFH3DOmp1D3u1Q=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
@@ -404,7 +383,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1709087332,
         "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
@@ -420,7 +398,6 @@
     "gnome-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1713702291,
         "narHash": "sha256-zYP1ehjtcV8fo+c+JFfkAqktZ384Y+y779fzmR9lQAU=",
         "owner": "GNOME",
         "repo": "gnome-shell",
@@ -442,7 +419,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1703113217,
         "narHash": "sha256-7ulcXOk63TIT2lVDSExj7XzFx09LpdSAPtvgtM7yQPE=",
         "owner": "nix-community",
         "repo": "home-manager",
@@ -462,7 +438,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1723399884,
         "narHash": "sha256-97wn0ihhGqfMb8WcUgzzkM/TuAxce2Gd20A8oiruju4=",
         "owner": "nix-community",
         "repo": "home-manager",
@@ -483,7 +458,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1723399884,
         "narHash": "sha256-97wn0ihhGqfMb8WcUgzzkM/TuAxce2Gd20A8oiruju4=",
         "owner": "nix-community",
         "repo": "home-manager",
@@ -504,7 +478,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1715930644,
         "narHash": "sha256-W9pyM3/vePxrffHtzlJI6lDS3seANQ+Nqp+i58O46LI=",
         "owner": "nix-community",
         "repo": "home-manager",
@@ -523,7 +496,6 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1723837272,
         "narHash": "sha256-0KfXWJCiDmwa03g/NJ+gmdp5Iw00Z7QYR+FqpZdZYtw=",
         "owner": "InioX",
         "repo": "Matugen",
@@ -544,7 +516,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1722924007,
         "narHash": "sha256-+CQDamNwqO33REJLft8c26NbUi2Td083hq6SvAm2xkU=",
         "owner": "lnl7",
         "repo": "nix-darwin",
@@ -559,7 +530,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718714799,
         "narHash": "sha256-FUZpz9rg3gL8NVPKbqU8ei1VkPLsTIfAJ2fdAf5qjak=",
         "owner": "NixOS",
         "repo": "nixpkgs",
@@ -575,7 +545,6 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1723637854,
         "narHash": "sha256-med8+5DSWa2UnOqtdICndjDAEjxr5D7zaIiK4pn0Q7c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
@@ -591,7 +560,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1716330097,
         "narHash": "sha256-8BO3B7e3BiyIDsaKA0tY8O88rClYRTjvAp66y+VBUeU=",
         "owner": "nixos",
         "repo": "nixpkgs",
@@ -607,7 +575,6 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1723688146,
         "narHash": "sha256-sqLwJcHYeWLOeP/XoLwAtYjr01TISlkOfz+NG82pbdg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
@@ -623,7 +590,6 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1714912032,
         "narHash": "sha256-clkcOIkg8G4xuJh+1onLG4HPMpbtzdLv4rHxFzgsH9c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
@@ -652,7 +618,6 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1723923888,
         "narHash": "sha256-w+/PG6KqB8en0x1JH5aMuf0QC78Nfei208EaaaRuYG4=",
         "owner": "nix-community",
         "repo": "nixvim",
@@ -674,7 +639,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1723367906,
         "narHash": "sha256-v1qA4WBGDI2uH/TVqRwuXSBP341W681psbzYJ8zrjog=",
         "owner": "NuschtOS",
         "repo": "search",
@@ -716,7 +680,6 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1723834469,
         "narHash": "sha256-PkJTr9DWBQcR5Ru1fJpG80dtw0MLSxAZlKnhHHFAGIA=",
         "owner": "danth",
         "repo": "stylix",
@@ -731,7 +694,6 @@
     },
     "systems": {
       "locked": {
-        "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
         "owner": "nix-systems",
         "repo": "default",
@@ -746,7 +708,6 @@
     },
     "systems_2": {
       "locked": {
-        "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
         "owner": "nix-systems",
         "repo": "default-linux",
@@ -761,7 +722,6 @@
     },
     "systems_3": {
       "locked": {
-        "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
         "owner": "nix-systems",
         "repo": "default-linux",
@@ -776,7 +736,6 @@
     },
     "systems_4": {
       "locked": {
-        "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
         "owner": "nix-systems",
         "repo": "default-linux",
@@ -791,7 +750,6 @@
     },
     "systems_5": {
       "locked": {
-        "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
         "owner": "nix-systems",
         "repo": "default",
@@ -812,7 +770,6 @@
         ]
       },
       "locked": {
-        "lastModified": 1723454642,
         "narHash": "sha256-S0Gvsenh0II7EAaoc9158ZB4vYyuycvMGKGxIbERNAM=",
         "owner": "numtide",
         "repo": "treefmt-nix",
