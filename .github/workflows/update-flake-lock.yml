@@ -18,8 +18,6 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Echo nix version
         run: nix --version
-      - name: Echo nixpkgs version
-        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Update flake.lock
         id: update
         uses: DeterminateSystems/update-flake-lock@v24
