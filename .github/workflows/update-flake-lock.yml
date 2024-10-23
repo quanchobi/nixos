@@ -18,7 +18,7 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Update flake.lock
         id: update
-        uses: DeterminateSystems/update-flake-lock@v19
+        uses: DeterminateSystems/update-flake-lock@v30
         with:
           inputs: nixpkgs nixpkgs-unstable home-manager flake-utils
 
