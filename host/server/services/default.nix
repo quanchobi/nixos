@@ -6,7 +6,7 @@
     ./jellyfin.nix
     ./nextcloud.nix
     ./home-assistant.nix
-    ./qbittorrent.nix
+    ./transmission.nix
     ./syncthing.nix
     ./homepage.nix
   ];
