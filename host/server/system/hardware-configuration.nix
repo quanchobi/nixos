@@ -37,7 +37,13 @@
     fsType = "btrfs";
   };
   
-  boot.initrd.luks.devices."cryptraid".device = "/dev/md0";
+  boot.initrd.luks.devices."cryptraid" = {
+    device = "/dev/md0";
+    keyFile = "/dev/sdg";
+    keyFileSize = 4096;
+    fallbackToPassword = true;
+    
+  };
 
   swapDevices = [ ];
 
@@ -51,4 +57,12 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Enable auto update based on my flake, once weekly on Sunday at 1:00
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+    dates = "Sun, 1:00";
+    flake = "github:quanchobi/nixos";
+  };
 }
