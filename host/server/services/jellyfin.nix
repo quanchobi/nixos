@@ -12,6 +12,7 @@
 
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs: [ onevpl-intel-gpu ];
+    extraPackages = with pkgs; [ onevpl-intel-gpu ];
+  };
   services.logrotate.enable = true;
 }
