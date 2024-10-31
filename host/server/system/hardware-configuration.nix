@@ -62,7 +62,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;
-    dates = "Sun, 1:00";
+    dates = "Sun *-*-* 00:00:00";
     flake = "github:quanchobi/nixos";
   };
 }
