@@ -1,4 +1,5 @@
 {
+    # All in one desktop environment. Dropped AGS due to a breaking update and being too lazy to fix it.
     # Hyprland, a lightweight Wayland window manager
     wayland.windowManager.hyprland = {
         enable = true;
@@ -32,7 +33,6 @@
             };
 
             decoration = {
-                drop_shadow = false;
                 rounding = 10;
                 blur.enabled = false;
             };
@@ -150,7 +150,21 @@
       enable = true;
       settings = {
         ipc = "off";
-	splash = "false";
+	      splash = "false";
+      };
+    };
+    
+    programs.waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          size = 24;
+          modules-left = [ "hyprland/workspaces" ];
+          modules-center = [ "hyprland/window" ];
+          modules-right = [ "pulseaudio" "network" "battery" "tray" "clock" ];
+        };
       };
     };
 }
