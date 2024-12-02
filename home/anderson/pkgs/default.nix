@@ -1,6 +1,5 @@
 {
   imports = [
-    ./ags/ags.nix
     ./anyrun.nix
     ./eza.nix
     ./foot.nix
