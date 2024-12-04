@@ -108,7 +108,7 @@
             ];
 
             exec-once = [
-                "ags"
+                "waybar"
             ];
         };
         plugins = [ ];
