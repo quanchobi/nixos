@@ -1,3 +1,4 @@
+{ config, ... }:
 {
     # All in one desktop environment. Dropped AGS due to a breaking update and being too lazy to fix it.
     # Hyprland, a lightweight Wayland window manager
@@ -108,6 +109,7 @@
             ];
 
             exec-once = [
+                "hyprpaper"
                 "waybar"
             ];
         };
@@ -149,8 +151,10 @@
     services.hyprpaper = {
       enable = true;
       settings = {
-        ipc = "off";
+        ipc = "on";
 	      splash = "false";
+        preload = [ "${config.stylix.image}" ];
+        wallpaper = [ ",${config.stylix.image}" ];
       };
     };
     
