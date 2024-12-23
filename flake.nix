@@ -24,7 +24,7 @@
     matugen.url = "github:/InioX/Matugen";
 
     # Nixpkgs source.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   
     # Unstable nixpkgs source.
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
