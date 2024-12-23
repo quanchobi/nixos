@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
 {
-#  stylix = {
-#    enable = true;
-#    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
-#    image = ./kanagawa.jpg;
-#  };
+  stylix = {
+    enable = true;
+#    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+    image = ../../../assets/desktop.jpg;
+  };
 
   gtk = {
     enable = true;
