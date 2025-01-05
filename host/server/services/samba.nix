@@ -1,12 +1,12 @@
 {
   services.samba = {
     enable = true;
-    securityType = "user";
     openFirewall = true;
     settings = {
       global = {
-      "guest account" = "nobody";
-      "map to guest" = "bad user";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+        security = "user";
       };
       # Contains torrented media
       "mediashare" = {
