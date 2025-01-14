@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -34,9 +34,14 @@
         adwaita-icon-theme
         aegyptus
         symbola
-        nautilus
         lunar-client
         neovim
+        unzip
+        # Coding tools
+        cargo
+        python3
+        nodejs_22
+        lua-language-server # to get this to work with nvim-lsp, cd to .local/share/nvim/mason/bin and run ln -sf $(which lua-language-server) lua-language-server
       ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
