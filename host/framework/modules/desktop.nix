@@ -1,24 +1,20 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  # Logging in from tty, display manager is unnecessary.
-  programs.hyprland = {
+  services.xserver = {
     enable = true;
-    xwayland.enable = true;
-    systemd.setPath.enable = true;
+    desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = true;
   };
-  services.hypridle.enable = true;
+  programs.dconf.enable = true;
+  environment.systemPackages = with pkgs; [ gnome-tweaks ];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-  # Stylix themes the entire nix system
   stylix = {
     enable = true;
     image = ../../../assets/desktop.jpg;
-
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+ 
     polarity = "dark";
-
+ 
     cursor = {
       package = pkgs.posy-cursors;
       name = "Posy_Cursor_Black";

@@ -2,9 +2,12 @@
 { # Environment configuration. Contains system packages and environment variables.
   environment = {
     systemPackages = with pkgs; [
+      gnumake
+      cmake
       wget
       brightnessctl
       ddcutil
+      wl-clipboard
       zsh
       gcc
       glib
@@ -23,7 +26,6 @@
       gst_all_1.gst-plugins-ugly
       gst_all_1.gst-libav
       gst_all_1.gst-vaapi
-      hyprpaper
     ];
 
     # Environment variables
