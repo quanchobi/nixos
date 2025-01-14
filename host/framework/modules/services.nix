@@ -7,7 +7,7 @@
   services.upower.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -35,7 +35,7 @@
     keyboards = {
       main = {
         devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
-	config = 
+	config =
 	''
 	  (defsrc
 	    caps)
@@ -53,7 +53,7 @@
 
   # Bootloader.
   boot = {
-    loader = { 
+    loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };

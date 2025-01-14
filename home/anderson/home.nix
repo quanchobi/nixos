@@ -21,23 +21,23 @@
 
 # The home.packages option allows you to install Nix packages into your
 # environment.
-    home.packages = with pkgs;
-    [
-      nerd-fonts.caskaydia-mono
-      nerd-fonts.caskaydia-cove
-      nerd-fonts.intone-mono
-      btop
-      orca-slicer
-      steam
-      vesktop
-      ryujinx
-      adwaita-icon-theme
-      aegyptus
-      symbola
-      nautilus
-      lunar-client
-      neovim
-    ];
+      home.packages = with pkgs;
+      [
+        nerd-fonts.caskaydia-mono
+        nerd-fonts.caskaydia-cove
+        nerd-fonts.intone-mono
+        btop
+        # orca-slicer # currently broken on unstable
+        steam
+        vesktop
+        ryujinx
+        adwaita-icon-theme
+        aegyptus
+        symbola
+        nautilus
+        lunar-client
+        neovim
+      ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
 # plain files is through 'home.file'.
