@@ -23,7 +23,9 @@
 # environment.
     home.packages = with pkgs;
     [
-      (pkgs.nerdfonts.override { fonts = [ "IntelOneMono" "CascadiaCode" ];})
+      nerd-fonts.caskaydia-mono
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.intone-mono
       btop
       orca-slicer
       steam
@@ -34,6 +36,7 @@
       symbola
       nautilus
       lunar-client
+      neovim
     ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
