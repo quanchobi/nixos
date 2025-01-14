@@ -21,4 +21,15 @@
       size = 16;
     };
   };
+  #pkgs.nerd-fonts.droid-sans-mono
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+#      emoji = [ pkgs.noto-fonts-color-emoji ];
+#      monospace = [ pkgs.nerd-fonts.caskaydia-mono ];
+#      serif = [ pkgs.nerd-fonts.tinos ];
+#      sansSerif = [ pkgs.nerd-fonts.caskaydia-cove ];
+    };
+  };
 }
+
