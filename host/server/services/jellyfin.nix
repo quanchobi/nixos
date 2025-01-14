@@ -10,9 +10,9 @@
     jellyfin-ffmpeg
   ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ onevpl-intel-gpu ];
+    extraPackages = with pkgs; [ vpl-gpu-rt ];
   };
   services.logrotate.enable = true;
 }

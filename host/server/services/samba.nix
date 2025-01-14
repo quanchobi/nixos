@@ -1,10 +1,15 @@
 {
   services.samba = {
     enable = true;
-    securityType = "user";
     openFirewall = true;
-    shares = {
-      mediashare = {
+    settings = {
+      global = {
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+        security = "user";
+      };
+      # Contains torrented media
+      "mediashare" = {
         path = "/mnt/crypt/samba_share";
         "read only" = true;
         "write list" = "anderson";
@@ -13,11 +18,6 @@
         comment = "my media samba share";
       };
     };
-
-    extraConfig = ''
-      guest account = nobody
-      map to guest = bad user
-    '';
   };
 
   services.samba-wsdd = {
