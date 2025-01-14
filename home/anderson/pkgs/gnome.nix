@@ -5,6 +5,7 @@
   gnomeExtensions.dash-to-dock
   gnomeExtensions.forge
   gnomeExtensions.user-themes
+  gnomeExtensions.tailscale-qs
   ];
 
   dconf.settings = {
@@ -21,7 +22,8 @@
         user-themes.extensionUuid
         dash-to-dock.extensionUuid
         system-monitor.extensionUuid
-      ];
+        tailscale-qs.extensionUuid
+        ];
 
       disabled-extensions = [
         "native-window-placement@gnome-shell-extensions.gcampax.github.com"

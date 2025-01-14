@@ -13,7 +13,6 @@
       glib
       glibc
       gtk3
-      webkitgtk
       gjs
       virtualglLib
       virtualgl

@@ -1,6 +1,6 @@
 {
   imports = [
-    ./anyrun.nix
+    # ./anyrun.nix
     ./eza.nix
     ./foot.nix
     ./git.nix

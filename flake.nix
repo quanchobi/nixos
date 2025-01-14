@@ -2,13 +2,6 @@
   description = "My NixOS Configuration. Has config for multiple machines. My laptop, desktop, and server are all defined.";
 
   inputs = {
-    ags.url = "github:Aylur/ags";
-
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,12 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Dependency for the ags widgets i am using
-    matugen.url = "github:/InioX/Matugen";
-
     # Nixpkgs source.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-  
+
     # Unstable nixpkgs source.
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -38,12 +28,13 @@
     # Stylix is used to configure the entire system effortlessly.
     stylix.url = "github:danth/stylix";
 
+    # A secure way to store secrets in nixos
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   }; # End inputs
-  
+
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixvim, agenix, ... }@inputs: {
     # Define all configurations here.
     nixosConfigurations = {
@@ -67,7 +58,7 @@
 	            useUserPackages = true;
 
 	            sharedModules = [
-	              nixvim.homeManagerModules.nixvim 
+	              nixvim.homeManagerModules.nixvim
 	            ];
 
               users.anderson = import ./home/anderson/home.nix;
@@ -84,7 +75,7 @@
 	      modules = [ ./host/server/configuration.nix ];
       };
 
-      # i9-11900k engineering sample, 2080 super, 64gb ddr4 3200mhz. 
+      # i9-11900k engineering sample, 2080 super, 64gb ddr4 3200mhz.
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
