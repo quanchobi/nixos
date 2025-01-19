@@ -19,6 +19,8 @@
         envExtra = ''
         '';
         sessionVariables = { };
-        shellAliases = { };
+        shellAliases = {
+            vi="nvim";
+        };
     };
 }

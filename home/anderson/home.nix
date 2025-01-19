@@ -1,8 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [
+      ../common
       ./pkgs
     ];
 # Home Manager needs a bit of information about you and the paths it should
@@ -27,16 +28,19 @@
         nerd-fonts.caskaydia-cove
         nerd-fonts.intone-mono
         btop
-        # orca-slicer # currently broken on unstable
+         orca-slicer # currently broken on unstable
         steam
         vesktop
         ryujinx
         adwaita-icon-theme
         aegyptus
         symbola
-        nautilus
         lunar-client
-        neovim
+        unzip
+        # Coding tools
+        cargo
+        python3
+        nodejs_22
       ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
