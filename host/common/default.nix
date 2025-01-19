@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
   imports = [
-    #./keymap
+    ./keymap.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -9,7 +9,6 @@
     wget
     git
     tmux
-    vim
     zsh
     glxinfo
     gperftools

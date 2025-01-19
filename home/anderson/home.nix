@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ../common
       ./pkgs
     ];
 # Home Manager needs a bit of information about you and the paths it should
@@ -27,7 +28,7 @@
         nerd-fonts.caskaydia-cove
         nerd-fonts.intone-mono
         btop
-        # orca-slicer # currently broken on unstable
+         orca-slicer # currently broken on unstable
         steam
         vesktop
         ryujinx
@@ -35,13 +36,11 @@
         aegyptus
         symbola
         lunar-client
-        neovim
         unzip
         # Coding tools
         cargo
         python3
         nodejs_22
-        lua-language-server # to get this to work with nvim-lsp, cd to .local/share/nvim/mason/bin and run ln -sf $(which lua-language-server) lua-language-server
       ];
 
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
