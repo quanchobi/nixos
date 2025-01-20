@@ -1,17 +1,17 @@
 {
   imports = [
-    ./base16.nix
-    ./lualine.nix
-    ./startup.nix
-    ./whichkey.nix
-    ./treesitter.nix
-    ./cmp/cmp.nix
-    ./cmp/blink.nix
-    ./lsp/lsp.nix
-    ./lz-n.nix
-    ./guess-indent.nix
     ./autopairs.nix
+    ./base16.nix
     ./comment.nix
+    ./guess-indent.nix
+    ./lualine.nix
+    ./lz-n.nix
+    ./startup.nix
     ./telescope.nix
+    ./treesitter.nix
+    ./whichkey.nix
+
+    ./cmp
+    ./lsp
   ];
 }

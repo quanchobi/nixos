@@ -1,0 +1,27 @@
+{ pkgs, ... }:
+{
+  imports = [
+    ./eza.nix
+    ./git.nix
+    ./password-store.nix
+    ./starship.nix
+    ./tmux.nix
+    ./zsh.nix
+  ];
+
+  home.packages = with pkgs; [
+    # Utilities
+    btop
+    unzip
+
+    # Dev tools
+    cargo
+    nodejs_22
+    python3
+
+    # Fonts
+    aegyptus
+    nerdfonts
+    symbola
+  ];
+}

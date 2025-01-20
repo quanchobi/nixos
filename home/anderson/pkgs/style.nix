@@ -1,10 +1,16 @@
 { pkgs, ... }:
-
 {
   stylix = {
     enable = true;
-#    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
     image = ../../../assets/desktop.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+
+    polarity = "dark";
+
+    cursor = {
+      package = pkgs.posy-cursors;
+      name = "Posy_Cursor_Black";
+    };
   };
 
   gtk = {
@@ -25,11 +31,11 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-#      emoji = [ pkgs.noto-fonts-color-emoji ];
-#      monospace = [ pkgs.nerd-fonts.caskaydia-mono ];
-#      serif = [ pkgs.nerd-fonts.tinos ];
-#      sansSerif = [ pkgs.nerd-fonts.caskaydia-cove ];
+      # TODO: this is currently written in the style of the unstable branch. Fix it to be compatible with stable.
+      #      emoji = [ pkgs.noto-fonts-color-emoji ];
+      #      monospace = [ pkgs.nerd-fonts.caskaydia-mono ];
+      #      serif = [ pkgs.nerd-fonts.tinos ];
+      #      sansSerif = [ pkgs.nerd-fonts.caskaydia-cove ];
     };
   };
 }
-

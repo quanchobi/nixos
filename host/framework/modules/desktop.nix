@@ -12,12 +12,13 @@
     enable = true;
     image = ../../../assets/desktop.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
- 
+
     polarity = "dark";
- 
+
     cursor = {
       package = pkgs.posy-cursors;
       name = "Posy_Cursor_Black";
+      size = 16;
     };
   };
 }
