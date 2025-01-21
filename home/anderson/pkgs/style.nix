@@ -3,19 +3,10 @@
   stylix = {
     enable = true;
     image = ../../../assets/desktop.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
-
-    polarity = "dark";
-
-    cursor = {
-      package = pkgs.posy-cursors;
-      name = "Posy_Cursor_Black";
-    };
   };
 
   gtk = {
     enable = true;
-
     iconTheme = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";

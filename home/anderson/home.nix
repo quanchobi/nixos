@@ -24,12 +24,12 @@ in
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = [
-      pkgs.steam
-      pkgs.vesktop
-      pkgs.ryujinx
-      pkgs.adwaita-icon-theme
-      pkgs.lunar-client
-      pkgs-unstable.orca-slicer
+      #pkgs.steam
+      #pkgs.vesktop
+      #pkgs.ryujinx
+      #pkgs.adwaita-icon-theme
+      #pkgs.lunar-client
+      #pkgs-unstable.orca-slicer
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage

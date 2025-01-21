@@ -1,6 +1,15 @@
 {
   description = "My NixOS Configuration. Has config for multiple machines. My laptop, desktop, and server are all defined.";
 
+  nixConfig = {
+    substituters = [
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
   inputs = {
     # A declarative way to add firefox addons. Used on desktop and laptop.
     firefox-addons = {
@@ -27,7 +36,7 @@
     };
 
     # Stylix is used to configure the entire system effortlessly. Used on desktop and laptop.
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-24.11";
 
     # A secure way to store secrets in nixos. Used in all machines.
     agenix = {

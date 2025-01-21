@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   imports = [
     ./keymap.nix
@@ -13,5 +13,8 @@
     glxinfo
     gperftools
     pciutils
+
+    # Cachix
+    cachix
   ];
 }
