@@ -18,6 +18,14 @@
         pattern = "TelescopePrompt";
         command = "inoremap <buffer><silent> <ESC> <ESC>:close!<CR>";
       }
+
+      # File specific commands
+      {
+        event = [ "FileType" ];
+        desc = "Set nix filetype indent";
+        pattern = "nix";
+        command = "setlocal shiftwidth=2 tabstop=2";
+      }
     ];
   };
 }

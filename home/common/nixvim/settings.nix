@@ -11,12 +11,12 @@
     # };
 
     performance = {
-      byteCompileLua = {
-        enable = true;
-        nvimRuntime = true;
-        configs = true;
-        plugins = true;
-      };
+#      byteCompileLua = {
+#        enable = true;
+#        nvimRuntime = true;
+#        configs = true;
+#        plugins = true;
+#      };
     };
 
     clipboard = {
@@ -69,21 +69,7 @@
 
       termguicolors = true;
       signcolumn = "yes";
+      showmode = false;
     };
-
-    autoCmd = [
-      {
-        event = [ "BufWritePre" ];
-        desc = "Delete trailing whitespace on write";
-        pattern = "*";
-        command = "%s/\s\+$//e";
-      }
-      {
-        event = [ "FileType" ];
-        desc = "Set nix filetype indent";
-        pattern = "nix";
-        command = "setlocal shiftwidth=2 tabstop=2";
-      }
-    ];
   };
 }
