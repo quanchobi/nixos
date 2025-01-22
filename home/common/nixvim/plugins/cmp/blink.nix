@@ -6,6 +6,7 @@ in
   programs.nixvim = {
     extraPlugins = [
       pkgs-unstable.vimPlugins.blink-ripgrep-nvim
+      pkgs-unstable.vimPlugins.blink-compat
     ];
 
     plugins = {
@@ -19,15 +20,6 @@ in
         ''
           capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
         '';
-
-      blink-compat = {
-        enable = true;
-        package = pkgs-unstable.vimPlugins.blink-compat;
-        settings = {
-          debug = true;
-          impersonate_nvim_cmp = true;
-        };
-      };
 
       blink-cmp = {
         enable = true;

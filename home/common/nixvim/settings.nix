@@ -11,12 +11,12 @@
     # };
 
     performance = {
-      byteCompileLua = {
-        enable = true;
-        nvimRuntime = true;
-        configs = true;
-        plugins = true;
-      };
+#      byteCompileLua = {
+#        enable = true;
+#        nvimRuntime = true;
+#        configs = true;
+#        plugins = true;
+#      };
     };
 
     clipboard = {

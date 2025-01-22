@@ -31,8 +31,8 @@
 
     # Nixvim is a way to declaratively configure neovim in nix. Used for all machines.
     nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:nix-community/nixvim/nixos-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Stylix is used to configure the entire system effortlessly. Used on desktop and laptop.
