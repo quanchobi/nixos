@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     # Utilities
     btop
+    netcat-gnu
     unzip
 
     # Dev tools
