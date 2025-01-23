@@ -1,6 +1,5 @@
 {
-  imports = 
-  [
+  imports = [
     ./desktop.nix
     ./services.nix
     ./hardware-configuration.nix

@@ -1,6 +1,14 @@
-{ pkgs, ... }:
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -15,7 +23,10 @@
 
   users.users.anderson = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "multimedia" ];
+    extraGroups = [
+      "wheel"
+      "multimedia"
+    ];
   };
 
   system.stateVersion = "24.05"; # IMPORTANT: DO NOT CHANGE

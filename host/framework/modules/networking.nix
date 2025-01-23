@@ -1,42 +1,49 @@
-{ config, pkgs, ... }:
-
-{ # Networking and locale information for framework
+{
+  # Networking and locale information for framework
   # Enable networking
-  networking.networkmanager.enable = true;
-  networking.hostName = "framework"; 
-  networking.firewall.checkReversePath = "loose"; # Necessary for tailscale + mullvad (see https://github.com/tailscale/tailscale/issues/10319)
+  imports = [ ];
 
-  # Tailscale to connect to my other devices
-  services.tailscale = {
-    enable = true;
-    authKeyFile = null; # TODO: set this using agenix
-    extraSetFlags = [ ]; # TODO: add --exit-node=<mullvad>
-  };
+  options = { };
 
-  # Enable GnuPG
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  config = {
+    networking = {
+      networkmanager.enable = true;
+      hostName = "framework";
+      firewall.checkReversePath = "loose"; # Necessary for tailscale + mullvad (see https://github.com/tailscale/tailscale/issues/10319)
+    };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+    # Tailscale to connect to my other devices
+    services.tailscale = {
+      enable = true;
+      authKeyFile = null; # TODO: set this using agenix
+      extraSetFlags = [ ]; # TODO: add --exit-node=<mullvad>
+    };
 
-  # Set your time zone.
-  time.timeZone = "America/Kentucky/Monticello";
+    # Enable GnuPG
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+    # Enable the OpenSSH daemon.
+    services.openssh.enable = true;
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    # Set your time zone.
+    time.timeZone = "America/Kentucky/Monticello";
+
+    # Select internationalisation properties.
+    i18n.defaultLocale = "en_US.UTF-8";
+
+    i18n.extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 }
