@@ -21,12 +21,16 @@
 
   time.timeZone = "Kentucky/Monticello";
 
+  programs.zsh.enable = true;
+
   users.users.anderson = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
       "multimedia"
+      "uinput"
     ];
+    shell = pkgs.zsh;
   };
 
   system.stateVersion = "24.05"; # IMPORTANT: DO NOT CHANGE
