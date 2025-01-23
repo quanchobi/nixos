@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -11,5 +12,13 @@
     ./gnome.nix
     ./obs.nix
     ./style.nix
+  ];
+  home.packages = [
+    pkgs.steam
+    pkgs.vesktop
+    pkgs.ryujinx
+    pkgs.adwaita-icon-theme
+    pkgs.lunar-client
+    pkgs.orca-slicer
   ];
 }
