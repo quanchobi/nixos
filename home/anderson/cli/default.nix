@@ -7,6 +7,8 @@
     ./starship.nix
     ./tmux.nix
     ./zsh.nix
+
+    ./nixvim
   ];
 
   home.packages = with pkgs; [
