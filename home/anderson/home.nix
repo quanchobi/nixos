@@ -11,8 +11,8 @@ let
 in
 {
   imports = [
-    ./cli
-  ] ++ (lib.optionals enableGui [ ./gui ]);
+    ./cli # Always add cli module
+  ] ++ (lib.optionals enableGui [ ./gui ]); # Add gui module if gui is enabled
 
   options = { };
 
@@ -34,14 +34,6 @@ in
 
       # The home.packages option allows you to install Nix packages into your
       # environment.
-      packages = [
-        pkgs.steam
-        pkgs.vesktop
-        pkgs.ryujinx
-        pkgs.adwaita-icon-theme
-        pkgs.lunar-client
-        pkgs.orca-slicer
-      ];
 
       # Home Manager is pretty good at managing dotfiles. The primary way to manage
       # plain files is through 'home.file'.
