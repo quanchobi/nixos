@@ -54,29 +54,30 @@
           show_end = false;
           show_exact_scope = true;
           show_start = false;
-          highlight = [ # Doesn't appear to be working and too lazy to fix
-            "RainbowDelimiterRed"
-            "RainbowDelimiterYellow"
-            "RainbowDelimiterBlue"
-            "RainbowDelimiterOrange"
-            "RainbowDelimiterGreen"
-            "RainbowDelimiterViolet"
-            "RainbowDelimiterCyan"
-          ];
+          # highlight = [ # Doesn't appear to be working and too lazy to fix
+          #   "RainbowDelimiterRed"
+          #   "RainbowDelimiterYellow"
+          #   "RainbowDelimiterBlue"
+          #   "RainbowDelimiterOrange"
+          #   "RainbowDelimiterGreen"
+          #   "RainbowDelimiterViolet"
+          #   "RainbowDelimiterCyan"
+          # ];
         };
       };
     };
+
     plugins.rainbow-delimiters = {
       enable = true;
-      highlight = [
-        "RainbowDelimiterRed"
-        "RainbowDelimiterYellow"
-        "RainbowDelimiterBlue"
-        "RainbowDelimiterOrange"
-        "RainbowDelimiterGreen"
-        "RainbowDelimiterViolet"
-        "RainbowDelimiterCyan"
-      ];
+      # highlight = [
+      #   "RainbowDelimiterRed"
+      #   "RainbowDelimiterYellow"
+      #   "RainbowDelimiterBlue"
+      #   "RainbowDelimiterOrange"
+      #   "RainbowDelimiterGreen"
+      #   "RainbowDelimiterViolet"
+      #   "RainbowDelimiterCyan"
+      # ];
     };
   };
 }
