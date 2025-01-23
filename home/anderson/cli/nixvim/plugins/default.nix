@@ -6,6 +6,7 @@
     ./guess-indent.nix
     ./lualine.nix
     ./lz-n.nix
+    ./ollama.nix
     ./startup.nix
     ./telescope.nix
     ./treesitter.nix
