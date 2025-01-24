@@ -21,8 +21,8 @@
 
       # File specific commands
       {
-        event = [ "FileType" ];
         desc = "Set nix filetype indent";
+        event = [ "FileType" ];
         pattern = "nix";
         command = "setlocal shiftwidth=2 tabstop=2";
       }

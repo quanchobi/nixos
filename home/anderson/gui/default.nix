@@ -1,9 +1,13 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
   ...
 }:
+let
+  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
 {
   # Enable gui programs only if machine is equipped with a gui
   imports = [
@@ -13,12 +17,14 @@
     ./obs.nix
     ./style.nix
   ];
-  home.packages = [
-    pkgs.steam
-    pkgs.vesktop
-    pkgs.ryujinx
-    pkgs.adwaita-icon-theme
-    pkgs.lunar-client
-    pkgs.orca-slicer
+  home.packages = with pkgs; [
+    steam
+    vesktop
+    ryujinx
+    adwaita-icon-theme
+    lunar-client
+    orca-slicer # Kinda broken
+    godot_4
+    obsidian
   ];
 }

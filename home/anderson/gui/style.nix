@@ -8,6 +8,8 @@
     stylix = {
       enable = true;
       image = ../../../assets/desktop.jpg;
+      # Manually enabled tmux
+      targets.tmux.enable = false;
     };
 
     gtk = {
