@@ -1,6 +1,6 @@
 {
   imports = [
-    ./blink.nix
+    #./blink.nix
     ./cmp.nix
   ];
 }
