@@ -27,7 +27,7 @@
         };
       };
 
-      render-markdown = {
+      markview = {
         enable = true;
         settings = { };
       };
