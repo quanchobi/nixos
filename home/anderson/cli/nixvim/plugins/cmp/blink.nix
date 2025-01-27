@@ -1,12 +1,8 @@
 { pkgs, inputs, ... }:
-let
-  pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
 {
   programs.nixvim = {
-    extraPlugins = [
-      pkgs-unstable.vimPlugins.blink-ripgrep-nvim
-      pkgs-unstable.vimPlugins.blink-compat
+    extraPlugins = with pkgs.vimPlugins; [
+
     ];
 
     plugins = {
@@ -15,6 +11,14 @@ in
       cmp-git.enable = true;
       cmp-spell.enable = true;
       cmp-treesitter.enable = true;
+
+      # blink-compat = {
+      #   enable = true;
+      #   settings = {
+      #     debug = false;
+      #     impersonate_nvim_cmp = true;
+      #   };
+      # };
 
       lsp.capabilities = # Lua
         ''
@@ -32,6 +36,7 @@ in
           keymap = {
             preset = "super-tab";
           };
+
           signature = {
             enabled = true;
           };
