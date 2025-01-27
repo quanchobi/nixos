@@ -9,7 +9,8 @@
         "deepseek-r1:14B"
         "llama3.1:8b"
         "qwen2.5-coder:32b"
-        "ollama run qwen2.5-coder:7b"
+        "qwen2.5-coder:7b"
+        "codestral"
       ];
     };
 
