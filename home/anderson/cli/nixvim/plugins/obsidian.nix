@@ -6,6 +6,11 @@
       obsidian = {
         enable = true;
         settings = {
+          completion = {
+            min_chars = 2;
+            nvim_cmp = true;
+          };
+          new_notes_location = "current_dir"; # I hate that this isn't default
           workspaces = [
             {
               name = "second-brain";
@@ -24,6 +29,16 @@
               path = "~/obsidian/website";
             }
           ];
+          mappings = {
+            gf = {
+              action = "require('obsidian').util.gf_passthrough";
+              opts = {
+                noremap = false;
+                expr = true;
+                buffer = true;
+              };
+            };
+          };
         };
       };
 
