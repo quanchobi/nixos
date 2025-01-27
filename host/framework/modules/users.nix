@@ -18,7 +18,6 @@
         "i2c"
         "uinput"
       ];
-      shell = pkgs.zsh;
     };
   };
 }

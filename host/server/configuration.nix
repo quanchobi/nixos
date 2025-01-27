@@ -30,7 +30,6 @@
       "multimedia"
       "uinput"
     ];
-    shell = pkgs.zsh;
   };
 
   system.stateVersion = "24.05"; # IMPORTANT: DO NOT CHANGE

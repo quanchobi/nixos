@@ -6,10 +6,10 @@
       host = "[::]";
       port = 11434;
       loadModels = [
-        "deepseek-r1:8B"
         "deepseek-r1:14B"
         "llama3.1:8b"
-        "llama3.2:3b"
+        "qwen2.5-coder:32b"
+        "ollama run qwen2.5-coder:7b"
       ];
     };
 
