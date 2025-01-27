@@ -1,3 +1,4 @@
+{ lib, enableGui, ... }:
 {
   imports = [
     ./autopairs.nix
@@ -9,7 +10,6 @@
     ./lz-n.nix
     ./noice.nix
     ./ollama.nix
-    ./obsidian.nix
     ./startup.nix
     ./telescope.nix
     ./treesitter.nix
@@ -18,5 +18,5 @@
 
     ./cmp
     ./lsp
-  ];
+  ] ++ lib.optionals enableGui [ ./obsidian.nix ]; # Already backed up to git, doesn't need to be on my servers.
 }
