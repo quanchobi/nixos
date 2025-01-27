@@ -17,4 +17,5 @@
     # Cachix
     cachix
   ];
+  users.users.anderson.shell = pkgs.nushell;
 }
