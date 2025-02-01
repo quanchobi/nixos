@@ -15,7 +15,6 @@
       profiles = {
         default = {
           id = 0;
-
           settings = {
             "browser.startup.homepage" = "https://google.com";
             "browser.search.defaultenginename" = "Google";
@@ -73,6 +72,7 @@
             darkreader
             privacy-badger
             decentraleyes
+            tree-style-tab
           ];
         };
       };

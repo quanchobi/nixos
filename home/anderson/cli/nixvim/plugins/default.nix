@@ -10,6 +10,7 @@
     ./lz-n.nix
     ./noice.nix
     ./ollama.nix
+    ./otter.nix
     ./startup.nix
     ./telescope.nix
     ./treesitter.nix
