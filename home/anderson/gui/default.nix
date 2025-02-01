@@ -26,5 +26,6 @@ in
     orca-slicer # Kinda broken
     godot_4
     obsidian
+    zoom-us
   ];
 }

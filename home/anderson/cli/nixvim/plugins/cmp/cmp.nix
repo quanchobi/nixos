@@ -52,6 +52,10 @@ in
               priority = 850;
               option = { inherit get_bufnrs; };
             }
+            # {
+            #   name = "cmp_ai";
+            #   priority = 775;
+            # }
             {
               name = "luasnip";
               priority = 750;
@@ -147,6 +151,17 @@ in
       };
 
       friendly-snippets.enable = true;
+
+      # cmp-ai = {
+      #   enable = true;
+      #   settings = {
+      #     provider = "Ollama";
+      #     provider_options = {
+      #       model = "qwen2.5-coder:32b";
+      #       base_url = "http://100.87.28.41/api/generate"; # use my server for ollama
+      #     };
+      #   };
+      # };
     };
   };
 }

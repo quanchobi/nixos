@@ -1,6 +1,6 @@
 {
   programs.nixvim = {
-    autocmd = [
+    autoCmd = [
       {
         desc = "Vertically center document when entering insert mode";
         event = "InsertEnter";
@@ -25,6 +25,20 @@
         event = [ "FileType" ];
         pattern = "nix";
         command = "setlocal shiftwidth=2 tabstop=2";
+      }
+
+      {
+        desc = "Set wrap for markdown files";
+        event = [ "FileType" ];
+        pattern = "md";
+        command = "set wrap";
+      }
+
+      {
+        desc = "Enable Otter for markdown files";
+        event = [ "FileType" ];
+        pattern = "md";
+        command = "lua require'otter'.activate()";
       }
     ];
   };
