@@ -2,7 +2,7 @@
 
 ## ❄️ Overview
 
-This is my personal NixOS system configuration flake. There are many like it, but this one is mine. I don't do anything particularly special, but here is a list of other cool flakes to check out.
+This is my personal NixOS system configuration flake. There are many like it, but this one is mine. I don't do anything particularly special, but you're free to look around and use what you want.
 
 ## 📁 Organization
 
