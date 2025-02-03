@@ -66,7 +66,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./host/framework/configuration.nix
+            ./host/framework
             ./host/common
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
@@ -92,7 +92,7 @@
         server = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./host/server/configuration.nix
+            ./host/server
             ./host/common
             #inputs.nixified-ai.nixosModules.comfyui
             inputs.nixvim.nixosModules.nixvim
@@ -123,6 +123,7 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
             # Import home-manager configuration
             home-manager.nixosModules.home-manager
             {

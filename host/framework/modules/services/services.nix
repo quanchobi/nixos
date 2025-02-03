@@ -1,3 +1,4 @@
+#TODO: Refactor into individual files
 {
   # Contains packages necessary for my laptops hardware
   imports = [ ];

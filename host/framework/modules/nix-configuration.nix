@@ -1,10 +1,10 @@
+# nix and nixpkgs config
 {
-  imports = [ ./modules ];
+  imports = [ ];
 
   options = { };
 
   config = {
-
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
@@ -12,9 +12,6 @@
 
     nixpkgs.config = {
       allowUnfree = true;
-      #      permittedInsecurePackages = [
-      #        "dotnet-sdk-6.0.428"
-      #      ];
     };
 
     # This value determines the NixOS release from which the default

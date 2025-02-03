@@ -1,3 +1,4 @@
+# TODO: Refactor into individual services
 {
   # Networking and locale information for framework
   # Enable networking
@@ -29,9 +30,9 @@
     services.openssh.enable = true;
 
     # Set your time zone.
-    time.timeZone = "America/Kentucky/Monticello";
+    #    time.timeZone = "America/Kentucky/Monticello"; # set in common
 
-    # Select internationalisation properties.
+    # Select internationalisation properties. Maybe move to common
     i18n.defaultLocale = "en_US.UTF-8";
 
     i18n.extraLocaleSettings = {
