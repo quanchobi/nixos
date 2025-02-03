@@ -1,10 +1,10 @@
 # My Home Manager Configuration
 
-## Overview
+## 🏡 Overview
 
 This is my home-manager configuration. There are many like it, but this one is mine. This might get spun into its own repo sometime such that I can use it on other non NixOS machines.
 
-## Organization
+## 📁 Organization
 
 Files are organized like this:
 
@@ -21,11 +21,11 @@ home
         ╰─── <gui modules>
 ```
 
-### CLI
+### ⌨️ CLI
 
 CLI modules are enabled for all machines. It provides a basic set of CLI tools that are useful to have on any system.
 
-### GUI
+### 💻 GUI
 
 GUI modules are only enabled on machines with GUIs enabled in their host configuration. This is done with a boolean defined in flake.nix.
 
@@ -38,7 +38,8 @@ imports = [
 }
 ```
 
-## Notes
+## 📝 Notes
 
-**_HERE BE DRAGONS_**
+**_HERE BE DRAGONS!_**
+
 Use at your own peril.

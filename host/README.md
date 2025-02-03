@@ -2,23 +2,23 @@
 
 ## 🖥️ Machines
 
-### Common
+### 🔌 Common
 
 Contains packages and keyboard configuration to be shared across all systems.
 
-### Desktop
+### 🖥️ Desktop
 
 My desktop machine. Contains a 2080 Super and 11900K-ES. Used for desktop things. Gaming, coding, 3d printing, etc.
 
-### Framework
+### 💻 Framework
 
 My [Framework](https://frame.work/) laptop. Ryzen 7840U. Used for laptop things. Coding, 3d printing, etc.
 
-### Server
+### 🌐 Server
 
 My home server. Xeon-2683v4 and Intel Arc A380. Runs lots of things. Mostly for torrenting media and storing files. Though it also runs AI things (on CPU unfortunately) and home assistant.
 
-### WSL
+### 🧑‍💻 WSL
 
 My desktop, just on WSL. I use dual boot to run Windows and NixOS on it, but I still like to have my CLI tools set up in WSL.
 
@@ -59,7 +59,7 @@ host
 
 _Yes I wrote the tree by hand..._
 
-## File Format
+## 📝 File Format
 
 Files should generally be formatted like this. The keen eyed among you will notice this is the same way as [NixOS modules are written](https://nixos.wiki/wiki/NixOS_modules). One module defined per file.
 
