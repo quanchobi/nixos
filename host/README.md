@@ -1,6 +1,6 @@
-# 💻 Host Configuration
+# 🕴️ Host Configuration
 
-## 🖥️ Machines
+## ⚙️ Machines
 
 ### 🔌 Common
 
