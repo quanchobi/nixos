@@ -14,6 +14,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  boot.loader.systemd-boot.enable = true;
+
   boot.initrd.availableKernelModules = [
     "ahci"
     "xhci_pci"
@@ -31,6 +33,7 @@
     enable = true;
     mdadmConf = ''
       ARRAY /dev/md/ubuntu-server:0 metadata=1.2 UUID=baf541ae:92088960:7f78756d:e4243e39
+      ARRAY /dev/md/mirror-sda-sde-8tb metadata=1.2 UUID=f040d796:2cf11a73:637e450e:a4e173fe
       MAILADDR quanchobi@proton.me
     '';
   };
@@ -49,8 +52,15 @@
     ];
   };
 
+  # Raid 5 mdadm array with 3 2tb disks.
   fileSystems."/mnt/crypt" = {
     device = "/dev/disk_array_2/lv-0";
+    fsType = "btrfs";
+  };
+
+  # Raid 1 mdadm array with 2 8tb disks.
+  fileSystems."/mnt/mirror-8tb" = {
+    device = "/dev/md/mirror-sda-sde-8tb";
     fsType = "btrfs";
   };
 
@@ -59,7 +69,6 @@
     keyFile = "/dev/sdg";
     keyFileSize = 4096;
     fallbackToPassword = true;
-
   };
 
   swapDevices = [ ];
