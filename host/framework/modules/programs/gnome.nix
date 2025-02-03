@@ -1,7 +1,9 @@
 { pkgs, config, ... }:
 {
   imports = [ ];
+
   options = { };
+
   config = {
     services.xserver = {
       enable = true;

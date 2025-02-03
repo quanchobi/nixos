@@ -1,11 +1,10 @@
 {
   services.homepage-dashboard = {
-    enable = true;
-    services = 
-      [
-        {
-          "*arr" = [
-            {
+    enable = false;
+    services = [
+      {
+        "*arr" = [
+          {
             "Radarr" = {
               description = "A movie torrent client";
               href = "localhost:7878";
@@ -26,7 +25,9 @@
               description = "A torrent torrent client";
               href = "localhost:9696";
             };
-          }];
-      }];
+          }
+        ];
+      }
+    ];
   };
 }
