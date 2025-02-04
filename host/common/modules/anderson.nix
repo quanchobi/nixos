@@ -5,19 +5,20 @@
   options = { };
 
   config = {
-    # Define all users here
-    # Needs to be enabled to allow anderson the use zsh as login shell
-    programs.zsh.enable = true;
-
+    # anderson is the username I use on all of my Linux machines.
     users.users.anderson = {
       isNormalUser = true;
       description = "Jacob Hanks";
       extraGroups = [
         "networkmanager"
+        "multimedia"
         "wheel"
         "i2c"
         "uinput"
       ];
+      shell = pkgs.nushell;
     };
+
+    time.timeZone = "Kentucky/Monticello";
   };
 }
