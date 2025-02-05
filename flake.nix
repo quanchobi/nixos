@@ -1,14 +1,14 @@
 {
   description = "My NixOS Configuration. Has config for multiple machines. My laptop, desktop, and server are all defined.";
 
-  #  nixConfig = {
-  #    substituters = [
-  #      "https://nix-community.cachix.org"
-  #    ];
-  #    trusted-public-keys = [
-  #      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-  #    ];
-  #  };
+  # nixConfig = {
+  #   substituters = [
+  #     "https://nix-community.cachix.org"
+  #   ];
+  #   trusted-public-keys = [
+  #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  #   ];
+  # };
 
   inputs = {
     # A declarative way to add firefox addons. Used on desktop and laptop.
