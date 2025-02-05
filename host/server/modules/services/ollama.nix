@@ -7,8 +7,7 @@
       port = 11434;
       loadModels = [
         "deepseek-r1:14B"
-        "llama3.1:8b"
-        "qwen2.5-coder:32b"
+        #"llama3.1:8b"
         "qwen2.5-coder:7b"
         "codestral"
       ];
