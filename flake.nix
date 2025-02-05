@@ -1,14 +1,14 @@
 {
   description = "My NixOS Configuration. Has config for multiple machines. My laptop, desktop, and server are all defined.";
 
-  nixConfig = {
-    substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
+  #  nixConfig = {
+  #    substituters = [
+  #      "https://nix-community.cachix.org"
+  #    ];
+  #    trusted-public-keys = [
+  #      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  #    ];
+  #  };
 
   inputs = {
     # A declarative way to add firefox addons. Used on desktop and laptop.
@@ -25,6 +25,9 @@
 
     # Nixified-AI source.
     # nixified-ai.url = "github:nixified-ai/flake";
+
+    # WSL Compat
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     # Nixpkgs source.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -55,6 +58,7 @@
       nixpkgs-unstable, # Used to get specific packages from unstable
       home-manager,
       #nixified-ai,
+      nixos-wsl,
       nixvim,
       agenix,
       ...
@@ -151,11 +155,15 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
+            nixos-wsl.nixosModules.default
+
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                sharedModules = [ nixvim.homeManagerModules.nixvim ];
 
                 users.anderson = import ./home/anderson/home.nix;
                 extraSpecialArgs = {
