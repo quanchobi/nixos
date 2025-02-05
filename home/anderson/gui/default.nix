@@ -24,7 +24,7 @@ in
     adwaita-icon-theme
     lunar-client
     orca-slicer # Kinda broken
-    godot_4
+    godot3
     obsidian
     zoom-us
   ];

@@ -15,6 +15,7 @@
       virtualgl
       glxinfo
       gperftools
+      moonlight-qt
     ];
   };
 }

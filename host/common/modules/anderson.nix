@@ -19,6 +19,6 @@
       shell = pkgs.nushell;
     };
 
-    time.timeZone = "Kentucky/Monticello";
+    services.automatic-timezoned.enable = true;
   };
 }
