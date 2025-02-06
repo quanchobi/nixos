@@ -4,13 +4,11 @@
     # CLI Utilities
     wget
     git
+
     tmux
     zsh
     glxinfo
     gperftools
     pciutils
-
-    # Cachix
-    cachix
   ];
 }
