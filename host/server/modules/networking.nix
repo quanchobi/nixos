@@ -18,14 +18,8 @@
     enable = true;
   };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   services.openssh = {
-    enable = true;
-
+    # enable = true; # enabled in common.
     settings = {
       PasswordAuthentication = false; # key only
       PermitRootLogin = "no";

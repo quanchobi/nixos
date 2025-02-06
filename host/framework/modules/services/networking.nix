@@ -20,15 +20,6 @@
       extraSetFlags = [ ]; # TODO: add --exit-node=<mullvad>
     };
 
-    # Enable GnuPG
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
-
     # Set your time zone.
     #    time.timeZone = "America/Kentucky/Monticello"; # set in common
 
