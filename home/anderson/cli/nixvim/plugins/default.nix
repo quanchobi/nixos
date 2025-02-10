@@ -2,6 +2,7 @@
 {
   imports = [
     ./autopairs.nix
+    ./avante.nix
     ./base16.nix
     ./comment.nix
     ./godot.nix
