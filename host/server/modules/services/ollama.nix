@@ -17,7 +17,7 @@
       enable = true;
       openFirewall = true;
       host = "100.87.28.41";
-      port = 8080;
+      port = 8081;
     };
 
     # comfyui.enable = true; # no cpu support :(
