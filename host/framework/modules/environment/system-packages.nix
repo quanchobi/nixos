@@ -16,6 +16,7 @@
       glxinfo
       gperftools
       moonlight-qt
+      wl-clipboard
     ];
   };
 }

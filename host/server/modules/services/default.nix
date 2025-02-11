@@ -11,9 +11,12 @@
     ./minecraft.nix
     ./nextcloud.nix
     ./ollama.nix
+    ./openssh.nix
     ./samba.nix
     ./servarr
     ./syncthing.nix
+    ./tailscale.nix
+    ./traefik.nix
     ./transmission.nix
   ];
 }
