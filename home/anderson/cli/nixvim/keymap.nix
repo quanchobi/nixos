@@ -4,22 +4,6 @@
     globals.mapleader = " ";
     keymaps = [
       {
-        mode = "v";
-        key = "J";
-        action = ''
-          :m '>+1<CR>gv=gv
-        '';
-        options.desc = "Move selected line down";
-      }
-      {
-        mode = "v";
-        key = "K";
-        action = ''
-          :m '<-2<CR>gv=gv
-        '';
-        options.desc = "Move selected line up";
-      }
-      {
         mode = "n";
         key = "J";
         action = "mzJ`z";
@@ -53,9 +37,17 @@
         mode = "v";
         key = "<leader>y";
         action = ''
-          [["+Y]]
+          [["+y]]
         '';
         options.desc = "Copies selection into system clipboard";
+      }
+      {
+        mode = "v";
+        key = "<leader>p";
+        action = ''
+          [["+p]]
+        '';
+        options.desc = "Pastes from system clipboard";
       }
       {
         mode = "n";
