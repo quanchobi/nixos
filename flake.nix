@@ -68,7 +68,10 @@
         # Framework 13 Ryzen 7840U, Radeon 780M, 24gb ddr5 5600mhz.
         framework = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            #inherit agenix;
+          };
           modules = [
             ./host/framework
             ./host/common
@@ -95,6 +98,10 @@
         # Xeon E5-2683v4, Arc A380, 64gb ecc ddr4 2333mhz, 2 8tb hdds, 4 2tb hdds.
         server = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit agenix;
+          };
           modules = [
             ./host/server
             ./host/common
@@ -121,6 +128,10 @@
         # i9-11900k engineering sample, 2080 super, 64gb ddr4 3200mhz.
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit agenix;
+          };
           modules = [
             ./host/common
             ./host/desktop
@@ -148,7 +159,10 @@
         # WSL2. Same hardware as desktop.
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
+          specialArgs = {
+            inherit inputs;
+            inherit agenix;
+          };
           modules = [
             ./host/common
             ./host/wsl
