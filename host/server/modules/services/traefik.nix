@@ -2,7 +2,7 @@
 #   This means that it is not possible to make subdomains for a machine.
 #   Unfortunately, it is only possible to give one service TLS encryption and proxying for one service.
 #   For more info, check this issue: https://github.com/tailscale/tailscale/issues/1543
-{ config, ... }:
+{ inputs, config, ... }:
 let
   domain = "homelab.blenny-bramble.io";
 in
@@ -13,8 +13,17 @@ in
     443
   ];
 
+  systemd.services.traefik = {
+    environment = {
+      CLOUDFLARE_EMAIL = "hanksj6@gmail.com";
+    };
+    serviceConfig = {
+      EnvironmentFile = config.age.secrets.cloudflare-api-key.path;
+    };
+  };
+
   services.traefik = {
-    enable = false; # disabled until I get dnsChallenge working
+    enable = true; # disabled until I get dnsChallenge working
 
     #-- STATIC CONFIG OPTIONS --#
     staticConfigOptions = {
