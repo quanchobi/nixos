@@ -1,6 +1,7 @@
 {
   services.homepage-dashboard = {
-    enable = false;
+    enable = true;
+    listenPort = 8082;
     services = [
       {
         "*arr" = [

@@ -25,6 +25,7 @@ in
     lunar-client
     orca-slicer # Kinda broken
     godot3
+    #godot_4
     obsidian
     zoom-us
   ];

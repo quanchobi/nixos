@@ -31,7 +31,7 @@
         desc = "Set wrap for markdown files";
         event = [ "FileType" ];
         pattern = "md";
-        command = "set wrap";
+        command = "setlocal wrap";
       }
 
       {

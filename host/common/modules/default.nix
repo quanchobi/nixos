@@ -1,5 +1,6 @@
 {
   imports = [
+    ./age.nix
     ./anderson.nix
     ./keymap.nix
     ./system-packages.nix

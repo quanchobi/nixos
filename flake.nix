@@ -1,6 +1,7 @@
 {
-  description = "My NixOS Configuration. Has config for multiple machines. My laptop, desktop, and server are all defined.";
+  description = "Quanchobi's NixOS Config.";
 
+  # Seemed to make more of my packages be built instead of pulled from cache.
   # nixConfig = {
   #   substituters = [
   #     "https://nix-community.cachix.org"
@@ -11,53 +12,44 @@
   # };
 
   inputs = {
-    # A declarative way to add firefox addons. Used on desktop and laptop.
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nome-manager source. Allows home-manager to be used as a module.
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nixified-AI source.
+    # Currently unused, but might add for my desktop.
     # nixified-ai.url = "github:nixified-ai/flake";
 
-    # WSL Compat
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    # Nixpkgs source.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
-    # Unstable nixpkgs source.
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Nixvim is a way to declaratively configure neovim in nix. Used for all machines.
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Stylix is used to configure the entire system effortlessly. Used on desktop and laptop.
     stylix.url = "github:danth/stylix/release-24.11";
 
-    # A secure way to store secrets in nixos. Used in all machines.
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  }; # End inputs
-
+  };
   outputs =
     {
       self,
       nixpkgs,
-      nixpkgs-unstable, # Used to get specific packages from unstable
+      nixpkgs-unstable,
       home-manager,
-      #nixified-ai,
+      #nixified-ai, # Currently unused
       nixos-wsl,
       nixvim,
       agenix,
@@ -65,17 +57,23 @@
     }@inputs:
     {
       nixosConfigurations = {
-        # Framework 13 Ryzen 7840U, Radeon 780M, 24gb ddr5 5600mhz.
         framework = nixpkgs.lib.nixosSystem {
+          /**
+            My laptop.
+            Framework 13 Ryzen 7400.
+            Most used device.
+          */
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./host/framework
             ./host/common
+
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
 
-            # Import home-manager configuration
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -92,16 +90,25 @@
           ];
         };
 
-        # Xeon E5-2683v4, Arc A380, 64gb ecc ddr4 2333mhz, 2 8tb hdds, 4 2tb hdds.
         server = nixpkgs.lib.nixosSystem {
+          /**
+            My homelab.
+            Xeon E5-2683v4, Arc A380, 64gb ecc ddr4 2333mhz, 2 8tb hdds, 4 2tb hdds.
+            Used for media, games, and nextcloud.
+          */
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./host/server
             ./host/common
-            #inputs.nixified-ai.nixosModules.comfyui
+
+            # inputs.nixified-ai.nixosModules.comfyui
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -118,12 +125,20 @@
           ];
         };
 
-        # i9-11900k engineering sample, 2080 super, 64gb ddr4 3200mhz.
         desktop = nixpkgs.lib.nixosSystem {
+          /**
+            My desktop.
+            i9-11900k engineering sample, 2080 super, 64gb ddr4 3200mhz.
+            Currently, I mainly use Windows on it.
+          */
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./host/common
             ./host/desktop
+
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
@@ -134,6 +149,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                sharedModules = [ nixvim.homeManagerModules.nixvim ];
 
                 users.anderson = import ./home/anderson/home.nix;
                 extraSpecialArgs = {
@@ -145,18 +161,24 @@
           ];
         };
 
-        # WSL2. Same hardware as desktop.
         wsl = nixpkgs.lib.nixosSystem {
+          /**
+            My NixOS VM in WSL.
+            Runs on the desktop listed above.
+            I run some AI things on it, as well as use it for development.
+          */
           system = "x86_64-linux";
-
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./host/common
             ./host/wsl
+
+            nixos-wsl.nixosModules.default
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
-
-            nixos-wsl.nixosModules.default
 
             home-manager.nixosModules.home-manager
             {
@@ -175,5 +197,5 @@
           ];
         };
       };
-    }; # End outputs
+    };
 }
