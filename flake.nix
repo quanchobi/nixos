@@ -70,7 +70,6 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            #inherit agenix;
           };
           modules = [
             ./host/framework
@@ -100,7 +99,6 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit agenix;
           };
           modules = [
             ./host/server
@@ -130,11 +128,11 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit agenix;
           };
           modules = [
             ./host/common
             ./host/desktop
+
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
@@ -145,6 +143,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                sharedModules = [ nixvim.homeManagerModules.nixvim ];
 
                 users.anderson = import ./home/anderson/home.nix;
                 extraSpecialArgs = {
@@ -161,7 +160,6 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit agenix;
           };
           modules = [
             ./host/common
