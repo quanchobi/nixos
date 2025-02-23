@@ -5,6 +5,7 @@
     ./avante.nix
     ./base16.nix
     ./comment.nix
+    ./dap.nix
     ./godot.nix
     ./guess-indent.nix
     ./lualine.nix

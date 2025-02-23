@@ -1,7 +1,3 @@
-# Currently, Tailscale MagicDNS does not allow for CNAME records for machines.
-#   This means that it is not possible to make subdomains for a machine.
-#   Unfortunately, it is only possible to give one service TLS encryption and proxying for one service.
-#   For more info, check this issue: https://github.com/tailscale/tailscale/issues/1543
 { inputs, config, ... }:
 let
   domain = "homelab.blenny-bramble.io";
@@ -40,6 +36,10 @@ in
       };
 
       certificatesResolvers = {
+        # Currently, Tailscale MagicDNS does not allow for CNAME records for machines.
+        #   This means that it is not possible to make subdomains for a machine.
+        #   Unfortunately, it is only possible to give one service TLS encryption and proxying for one service.
+        #   For more info, check this issue: https://github.com/tailscale/tailscale/issues/1543
         tailscale.tailscale = { };
         letsencrypt = {
           acme = {
