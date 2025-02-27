@@ -1,7 +1,6 @@
 {
   services.nextcloud = {
-    enable = true;
+    enable = false;
     settings = { };
-
   };
 }
