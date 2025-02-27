@@ -9,7 +9,14 @@
       enable = true;
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
+      videoDrivers = [ "amdgpu" ];
     };
+
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
     programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [ gnome-tweaks ];
     # TODO: remove unwanted gnome packages

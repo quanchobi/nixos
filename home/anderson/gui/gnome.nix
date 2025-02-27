@@ -5,12 +5,13 @@
   options = { };
 
   config = {
-    home.packages = with pkgs; [
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.forge
-      gnomeExtensions.user-themes
-      gnomeExtensions.tailscale-qs
+    home.packages = with pkgs.gnomeExtensions; [
+      blur-my-shell
+      dash-to-dock
+      forge
+      user-themes
+      tailscale-qs
+      tray-icons-reloaded
     ];
 
     dconf.settings = {
@@ -28,6 +29,7 @@
           dash-to-dock.extensionUuid
           system-monitor.extensionUuid
           tailscale-qs.extensionUuid
+          tray-icons-reloaded.extensionUuid
         ];
 
         disabled-extensions = [

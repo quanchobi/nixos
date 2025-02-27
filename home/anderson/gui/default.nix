@@ -18,14 +18,15 @@ in
     ./style.nix
   ];
   home.packages = with pkgs; [
+    okular
     steam
     vesktop
     ryujinx
     adwaita-icon-theme
     lunar-client
-    orca-slicer # Kinda broken
-    godot3
-    #godot_4
+    unstable-pkgs.orca-slicer # Kinda broken
+    #godot3
+    godot_4
     obsidian
     zoom-us
   ];

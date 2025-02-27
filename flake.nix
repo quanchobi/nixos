@@ -196,6 +196,40 @@
             }
           ];
         };
+        rpi = nixpkgs.lib.nixosSystem {
+          /**
+            My NixOS VM in WSL.
+            Runs on the desktop listed above.
+            I run some AI things on it, as well as use it for development.
+          */
+          system = "aarch64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./host/common
+            ./host/rpi
+
+            inputs.nixvim.nixosModules.nixvim
+            inputs.stylix.nixosModules.stylix
+            agenix.nixosModules.default
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                sharedModules = [ nixvim.homeManagerModules.nixvim ];
+
+                users.anderson = import ./home/anderson/home.nix;
+                extraSpecialArgs = {
+                  inherit inputs;
+                  enableGui = false;
+                };
+              };
+            }
+          ];
+        };
       };
     };
 }

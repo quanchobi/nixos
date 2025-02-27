@@ -3,20 +3,22 @@
   config = {
     # TODO: Some of these need to go to common
     environment.systemPackages = with pkgs; [
-      gnumake
       cmake
-      wget
-      zsh
       gcc
-      neovim
+      gnumake
       glib
       glibc
-      virtualglLib
-      virtualgl
       glxinfo
       gperftools
+      krita
+      neovim
+      virtualglLib
+      virtualgl
       moonlight-qt
+      via
+      wget
       wl-clipboard
+      zsh
     ];
   };
 }

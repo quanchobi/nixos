@@ -25,7 +25,7 @@
         "usb_storage"
         "sd_mod"
       ];
-      initrd.kernelModules = [ ];
+      initrd.kernelModules = [ "amdgpu" ];
       kernelParams = [
         "quiet"
         "splash"

@@ -13,8 +13,7 @@
     };
     programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [ gnome-tweaks ];
-    # TODO: remove unwanted gnome packages
-    environment.gnome.excludePackages = (with pkgs; [
+    environment.gnome.excludePackages = with pkgs; [
       atomix # puzzle game
       cheese # webcam tool
       epiphany # web browser
@@ -30,7 +29,7 @@
       iagno # go game
       tali # poker game
       totem # video player
-    ]);
+    ];
 
     stylix = {
       enable = true;
@@ -42,7 +41,7 @@
       cursor = {
         package = pkgs.posy-cursors;
         name = "Posy_Cursor_Black";
-        size = 16;
+        size = 12;
       };
     };
   };
