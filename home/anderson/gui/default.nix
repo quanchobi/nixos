@@ -24,7 +24,7 @@ in
     ryujinx
     adwaita-icon-theme
     lunar-client
-    unstable-pkgs.orca-slicer # Kinda broken
+    orca-slicer # Kinda broken
     #godot3
     godot_4
     obsidian

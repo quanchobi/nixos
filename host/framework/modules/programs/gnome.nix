@@ -24,7 +24,7 @@
     stylix = {
       enable = true;
       image = ../../../assets/desktop.jpg;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/espresso.yaml";
 
       polarity = "dark";
 

@@ -44,7 +44,13 @@
 
       markview = {
         enable = true;
-        settings = { };
+        settings = {
+          hybrid_modes = [
+            "n"
+            "no"
+          ];
+          linewise_hybrid_mode = true;
+        };
       };
     };
   };
