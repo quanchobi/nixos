@@ -5,6 +5,7 @@
     environment.systemPackages = with pkgs; [
       gnumake
       cmake
+      hugo
       wget
       zsh
       gcc

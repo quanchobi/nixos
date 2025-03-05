@@ -12,6 +12,11 @@
   # };
 
   inputs = {
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,10 +43,7 @@
 
     stylix.url = "github:danth/stylix/release-24.11";
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
   outputs =
     {

@@ -18,6 +18,7 @@ in
     ./style.nix
   ];
   home.packages = with pkgs; [
+    inputs.zen-browser.packages."${system}".specific
     okular
     steam
     vesktop
