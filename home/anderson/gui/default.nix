@@ -25,7 +25,7 @@ in
     ryujinx
     adwaita-icon-theme
     lunar-client
-    orca-slicer # Kinda broken
+    orca-slicer
     #godot3
     godot_4
     obsidian
