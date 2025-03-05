@@ -10,7 +10,7 @@
       image = ../../../assets/desktop.jpg;
       # Manually enabled tmux
       targets.tmux.enable = false;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/espresso.yaml";
     };
 
     gtk = {

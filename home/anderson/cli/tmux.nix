@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -8,6 +9,9 @@
     customPaneNavigationAndResize = true;
     prefix = "C-Space";
     terminal = "xterm-256color";
+    plugins = [
+      pkgs.tmuxPlugins.tmux-floax
+    ];
     extraConfig = ''
       # Change splits to | and - as opposed to " and %
             unbind '"'

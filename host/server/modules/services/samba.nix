@@ -20,9 +20,11 @@
     };
   };
 
+  # Allows Windows machines to connect
   services.samba-wsdd = {
     enable = true;
     openFirewall = true;
   };
+
   networking.firewall.allowPing = true;
 }

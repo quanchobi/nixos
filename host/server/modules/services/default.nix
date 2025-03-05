@@ -9,9 +9,9 @@
     ./homepage.nix
     ./jellyfin.nix
     ./minecraft.nix
-    ./nextcloud.nix
     ./ollama.nix
     ./openssh.nix
+    ./radicale.nix
     ./samba.nix
     ./servarr
     ./syncthing.nix

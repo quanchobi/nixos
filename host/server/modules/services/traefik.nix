@@ -14,7 +14,7 @@ in
       CLOUDFLARE_EMAIL = "hanksj6@gmail.com";
     };
     serviceConfig = {
-      EnvironmentFile = config.age.secrets.cloudflare-api-key.path;
+      #EnvironmentFile = config.age.secrets.cloudflare-api-key.path;
     };
   };
 

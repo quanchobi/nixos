@@ -18,13 +18,14 @@ in
     ./style.nix
   ];
   home.packages = with pkgs; [
+    inputs.zen-browser.packages."${system}".specific
     okular
     steam
     vesktop
     ryujinx
     adwaita-icon-theme
     lunar-client
-    unstable-pkgs.orca-slicer # Kinda broken
+    orca-slicer
     #godot3
     godot_4
     obsidian
