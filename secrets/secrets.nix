@@ -16,6 +16,7 @@ let
   clients = [
     framework
     desktop
+    anderson
   ];
 
   users = [
