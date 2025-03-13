@@ -601,6 +601,7 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "ba487dbc9d04e0634c64e3b1f0d25839a0a68246",
+
         "type": "github"
       },
       "original": {
@@ -617,6 +618,7 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "6af28b834daca767a7ef99f8a7defa957d0ade6f",
+
         "type": "github"
       },
       "original": {
