@@ -7,6 +7,7 @@
   imports = [
     ./home-assistant.nix
     ./homepage.nix
+    ./deluge.nix
     ./jellyfin.nix
     ./minecraft.nix
     ./ollama.nix
