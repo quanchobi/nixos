@@ -24,6 +24,7 @@ in
     ryujinx
     adwaita-icon-theme
     lunar-client
+    minecraft
     orca-slicer
     #godot3
     godot_4

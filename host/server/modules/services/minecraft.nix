@@ -29,6 +29,7 @@
           oppai_and_thighs = "994ede25-d7e9-48e6-b021-0677cdf623ec";
           JEFFMINGUS = "2e3785ec-e5c5-48eb-b450-bf989acb69ad";
           pwn_noobs = "3651f883-8c74-4b92-b732-149d9b8950df";
+          bargain_bin = "dc1b64ab-c60c-4f2c-a6be-1437d1791cd0";
         };
         symlinks = {
           "mods" = pkgs.linkFarmFromDrvs "mods" (
