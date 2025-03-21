@@ -1,7 +1,7 @@
 {
   description = "Quanchobi's NixOS Config.";
 
-  # Seemed to make more of my packages be built instead of pulled from cache.
+  # Seemed to make more of my packages be built instead of pulled from cache, so it is disabled.
   # nixConfig = {
   #   substituters = [
   #     "https://nix-community.cachix.org"
@@ -17,15 +17,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # Currently unused, but might add for my desktop.
     # nixified-ai.url = "github:nixified-ai/flake";
