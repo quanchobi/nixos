@@ -19,12 +19,11 @@ in
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${system}".specific
     okular
-    steam
     vesktop
     ryujinx
     adwaita-icon-theme
     lunar-client
-    minecraft
+    prismlauncher
     orca-slicer
     #godot3
     godot_4
