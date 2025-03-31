@@ -9,6 +9,7 @@
     ./homepage.nix
     ./deluge.nix
     ./jellyfin.nix
+    ./minecraft.nix
     ./ollama.nix
     ./openssh.nix
     ./radicale.nix
