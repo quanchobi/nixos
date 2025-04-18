@@ -8,6 +8,7 @@
     ./home-assistant.nix
     ./homepage.nix
     ./deluge.nix
+    ./immich.nix
     ./jellyfin.nix
     ./ollama.nix
     ./openssh.nix

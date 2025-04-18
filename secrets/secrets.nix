@@ -31,4 +31,6 @@ in
   "samba-credentials.age".publicKeys = clients;
   "deluge-credentials.age".publicKeys = server ++ [ anderson-server ];
   "transmission-credentials.age".publicKeys = server ++ [ anderson-server ];
+  "photoprism-admin-passwd.age".publicKeys = server ++ [ anderson-server ];
+  "dashboard-env.age".publicKeys = server ++ [ anderson-server ];
 }

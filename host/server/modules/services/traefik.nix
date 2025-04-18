@@ -1,6 +1,7 @@
 { inputs, config, ... }:
 let
   domain = "homelab.blenny-bramble.io";
+  tailscale_domain = "blenny-bramble.ts.net";
 in
 {
   # For letsencrypt challenge
@@ -41,6 +42,8 @@ in
         #   Unfortunately, it is only possible to give one service TLS encryption and proxying for one service.
         #   For more info, check this issue: https://github.com/tailscale/tailscale/issues/1543
         tailscale.tailscale = { };
+
+        # This isn't finished at the moment.
         letsencrypt = {
           acme = {
             email = "quanchobi@proton.me";
@@ -65,7 +68,7 @@ in
           address = "0.0.0.0:443";
           asDefault = true;
           http.tls = {
-            certResolver = "letsencrypt";
+            certResolver = "tailscale";
             domains = [
               {
                 main = "${domain}";
@@ -86,37 +89,37 @@ in
               url = "http://localhost:8082";
             }
           ];
-          traefik-dashboard.loadBalancer.servers = [
-            {
-              url = "localhost:8080";
-            }
-          ];
-          jellyfin.loadBalancer.servers = [
-            {
-              url = "http://localhost:8096";
-            }
-          ];
+          # traefik-dashboard.loadBalancer.servers = [
+          #   {
+          #     url = "localhost:8080";
+          #   }
+          # ];
+          # jellyfin.loadBalancer.servers = [
+          #   {
+          #     url = "http://localhost:8096";
+          #   }
+          # ];
         };
 
         routers = {
           homepage = {
             entryPoints = [ "websecure" ];
-            rule = "Host(`server.${domain}`)";
+            rule = "Host(`server.${tailscale_domain}`)";
             service = "homepage";
-            tls.certResolver = "letsencrypt";
+            tls.certResolver = "tailscale";
           };
-          traefik-dashboard = {
-            entryPoints = [ "websecure" ];
-            rule = "Host(`traefik.server.${domain}`)";
-            service = "traefik-dashboard";
-            tls.certResolver = "letsencrypt";
-          };
-          jellyfin = {
-            entryPoints = [ "websecure" ];
-            rule = "Host(`jellyfin.server.${domain}`)";
-            service = "jellyfin";
-            tls.certResolver = "letsencrypt";
-          };
+          # traefik-dashboard = {
+          #   entryPoints = [ "websecure" ];
+          #   rule = "Host(`traefik.server.${domain}`)";
+          #   service = "traefik-dashboard";
+          #   tls.certResolver = "letsencrypt";
+          # };
+          # jellyfin = {
+          #   entryPoints = [ "websecure" ];
+          #   rule = "Host(`jellyfin.server.${domain}`)";
+          #   service = "jellyfin";
+          #   tls.certResolver = "letsencrypt";
+          # };
         };
       };
     };
