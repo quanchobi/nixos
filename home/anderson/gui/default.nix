@@ -17,6 +17,7 @@ in
     ./style.nix
   ];
   home.packages = with pkgs; [
+    freecad-wayland
     inputs.zen-browser.packages."${system}".specific
     okular
     vesktop
@@ -29,5 +30,6 @@ in
     godot_4
     obsidian
     zoom-us
+    piper-tts
   ];
 }

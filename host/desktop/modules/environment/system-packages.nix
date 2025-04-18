@@ -10,6 +10,7 @@
       glibc
       glxinfo
       gperftools
+      lazymc
       krita
       neovim
       virtualglLib
