@@ -22,6 +22,7 @@
     cargo
     nodejs_22
     python3
+    lua
 
     # Fonts
     aegyptus

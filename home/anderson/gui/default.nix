@@ -23,6 +23,7 @@ in
     vesktop
     ryujinx
     adwaita-icon-theme
+    love
     lunar-client
     prismlauncher
     orca-slicer
