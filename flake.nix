@@ -60,7 +60,6 @@
           /**
             My laptop.
             Framework 13 Ryzen 7400.
-            Most used device.
           */
           system = "x86_64-linux";
           specialArgs = {
