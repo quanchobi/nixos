@@ -2,11 +2,9 @@
 {
   imports = [
     ./autopairs.nix
-    ./avante.nix
     ./base16.nix
     ./comment.nix
     ./dap.nix
-    ./godot.nix
     ./guess-indent.nix
     ./lualine.nix
     ./lz-n.nix
