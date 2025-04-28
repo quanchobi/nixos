@@ -5,6 +5,7 @@
   ];
 
   imports = [
+    ./grafana.nix
     ./home-assistant.nix
     ./homepage.nix
     ./deluge.nix
@@ -12,6 +13,7 @@
     ./jellyfin.nix
     ./ollama.nix
     ./openssh.nix
+    ./prometheus.nix
     ./radicale.nix
     ./samba.nix
     ./servarr

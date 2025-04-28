@@ -25,6 +25,10 @@ in
       cardBlue = "xs";
 
       headerStyle = "clean";
+
+      providers = {
+        finnhub = "{{HOMEPAGE_VAR_FINNHUB_API_KEY}}";
+      };
     };
 
     bookmarks = [
@@ -59,6 +63,34 @@ in
               {
                 href = "https://login.tailscale.com";
                 icon = "tailscale.png";
+              }
+            ];
+          }
+          {
+            hostinger = [
+              {
+                href = "https://hpanel.hostinger.com";
+                icon = "hostinger.svg";
+              }
+            ];
+          }
+        ];
+      }
+      {
+        FDM = [
+          {
+            shadowheart = [
+              {
+                href = "http://fdm-shadowheart";
+                icon = "https://i.etsystatic.com/26093962/r/il/b8368e/5320985441/il_1080xN.5320985441_56an.jpg";
+              }
+            ];
+          }
+          {
+            theseus = [
+              {
+                href = "http://fdm-theseus";
+                icon = "https://www.menofthewest.net/wp-content/uploads/2021/01/Theseus.png";
               }
             ];
           }
@@ -192,12 +224,12 @@ in
             Deluge = {
               icon = "deluge.png";
               href = "http://server.${domain}:8112";
-              widget = {
-                type = "deluge";
-                url = "http://server.${domain}:8112";
-                password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
-                enableLeechProgress = true;
-              };
+              # widget = {
+              #   type = "deluge";
+              #   url = "http://server.${domain}:8112";
+              #   password = "{{HOMEPAGE_VAR_DELUGE_PASSWORD}}";
+              #   enableLeechProgress = true;
+              # };
             };
           }
         ];
@@ -216,6 +248,20 @@ in
               href = "http://desktop-nixos.${domain}:8188";
               description = "Stable Diffusion UI";
               icon = "https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024";
+            };
+          }
+          {
+            ChatGPT = {
+              href = "https://chatgpt.com";
+              description = "OpenAI's ChatGPT";
+              icon = "openai.svg";
+            };
+          }
+          {
+            Claude = {
+              href = "https://claude.ai";
+              description = "Anthropic's Claude";
+              icon = "claude-ai.svg";
             };
           }
         ];
@@ -277,6 +323,16 @@ in
     ];
 
     widgets = [
+      # {
+      #   stocks = {
+      #     provider = "finnhub";
+      #     watchlist = [
+      #       "NVDA"
+      #       "AMD"
+      #       "SPI"
+      #     ];
+      #   };
+      # }
       {
         search = {
           provider = "duckduckgo";
