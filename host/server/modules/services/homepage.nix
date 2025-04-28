@@ -1,6 +1,18 @@
 { config, ... }:
 let
   domain = "blenny-bramble.ts.net";
+
+  # Jellyfin and the *arrs do not expose their port as a config option.
+  jellyfin_port = "8096";
+  radarr_port = "7878";
+  sonarr_port = "8989";
+  lidarr_port = "8686";
+  readarr_port = "8787";
+  prowlarr_port = "9696";
+
+  comfyui_port = "8188";
+  radicale_port = "5232";
+  traefik_api_port = "8080";
 in
 {
   age.secrets = {
@@ -151,11 +163,11 @@ in
           {
             Jellyfin = {
               icon = "jellyfin.png";
-              href = "http://server.${domain}:8096";
+              href = "http://server.${domain}:${jellyfin_port}";
               description = "Media player";
               widget = {
                 type = "jellyfin";
-                url = "http://server.${domain}:8096";
+                url = "http://server.${domain}:${jellyfin_port}";
                 key = "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}";
               };
             };
@@ -163,11 +175,11 @@ in
           {
             Radarr = {
               icon = "radarr.png";
-              href = "http://server.${domain}:7878";
+              href = "http://server.${domain}:${radarr_port}";
               description = "Movie manager";
               widget = {
                 type = "radarr";
-                url = "http://server.${domain}:7878";
+                url = "http://server.${domain}:${radarr_port}";
                 key = "{{HOMEPAGE_VAR_RADARR_API_KEY}}";
               };
             };
@@ -175,11 +187,11 @@ in
           {
             Sonarr = {
               icon = "sonarr.png";
-              href = "http://server.${domain}:8989";
+              href = "http://server.${domain}:${sonarr_port}";
               description = "TV Show manager";
               widget = {
                 type = "sonarr";
-                url = "http://server.${domain}:8989";
+                url = "http://server.${domain}:${sonarr_port}";
                 key = "{{HOMEPAGE_VAR_SONARR_API_KEY}}";
               };
             };
@@ -187,11 +199,11 @@ in
           {
             Lidarr = {
               icon = "lidarr.png";
-              href = "http://server.${domain}:8686";
+              href = "http://server.${domain}:${lidarr_port}";
               description = "Music manager";
               widget = {
                 type = "lidarr";
-                url = "http://server.${domain}:8686";
+                url = "http://server.${domain}:${lidarr_port}";
                 key = "{{HOMEPAGE_VAR_LIDARR_API_KEY}}";
               };
             };
@@ -199,11 +211,11 @@ in
           {
             Readarr = {
               icon = "readarr.png";
-              href = "http://server.${domain}:8787";
+              href = "http://server.${domain}:${readarr_port}";
               description = "Book manager";
               widget = {
                 type = "readarr";
-                url = "http://server.${domain}:8787";
+                url = "http://server.${domain}:${readarr_port}";
                 key = "{{HOMEPAGE_VAR_READARR_API_KEY}}";
               };
             };
@@ -211,11 +223,11 @@ in
           {
             Prowlarr = {
               icon = "prowlarr.png";
-              href = "http://server.${domain}:9696";
+              href = "http://server.${domain}:${prowlarr_port}";
               description = "Servarr manager";
               widget = {
                 type = "prowlarr";
-                url = "http://server.${domain}:9696";
+                url = "http://server.${domain}:${prowlarr_port}";
                 key = "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}";
               };
             };
@@ -223,7 +235,7 @@ in
           {
             Deluge = {
               icon = "deluge.png";
-              href = "http://server.${domain}:8112";
+              href = "http://server.${domain}:${toString config.services.deluge.web.port}";
               # widget = {
               #   type = "deluge";
               #   url = "http://server.${domain}:8112";
@@ -245,7 +257,7 @@ in
           }
           {
             ComfyUI = {
-              href = "http://desktop-nixos.${domain}:8188";
+              href = "http://desktop-nixos.${domain}:${comfyui_port}";
               description = "Stable Diffusion UI";
               icon = "https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024";
             };
@@ -270,7 +282,7 @@ in
         Utilities = [
           {
             home-assistant = {
-              href = "http://server.${domain}:8123";
+              href = "http://server.${domain}:${toString config.services.home-assistant.config.http.server_port}";
               description = "Home Assistant";
               icon = "home-assistant.svg";
               # widget = {
@@ -281,8 +293,15 @@ in
             };
           }
           {
+            grafana = {
+              href = "http://server.${domain}.${toString config.services.grafana.settings.server.http_port}";
+              description = "Metrics Visualization";
+              icon = "grafana.svg";
+            };
+          }
+          {
             immich = {
-              href = "http://server.${domain}:2283";
+              href = "http://server.${domain}:${toString config.services.immich.port}";
               description = "Photo Library";
               icon = "immich.svg";
               # widget = {
@@ -295,14 +314,14 @@ in
           }
           {
             radicale = {
-              href = "http://server.${domain}:5232";
+              href = "http://server.${domain}:${radicale_port}";
               description = "Calendar";
               icon = "https://radicale.org/assets/logo.svg";
             };
           }
           {
             traefik = {
-              href = "http://server.${domain}:8080";
+              href = "http://server.${domain}:${traefik_api_port}";
               description = "Traefik Dashboard";
               icon = "traefik.svg";
             };
@@ -323,6 +342,7 @@ in
     ];
 
     widgets = [
+      # to fix later
       # {
       #   stocks = {
       #     provider = "finnhub";
