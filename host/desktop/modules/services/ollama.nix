@@ -16,7 +16,14 @@
       enable = true;
       #openFirewall = true;
       #host = "100.120.68.49";
+      stateDir = "/var/lib/open-webui";
       port = 8081;
+      environment = {
+        ANONYMIZED_TELEMETRY = "False";
+        DO_NOT_TRACK = "True";
+        SCARF_NO_ANALYTICS = "True";
+        WEBUI_AUTH = "False";
+      };
     };
   };
 }

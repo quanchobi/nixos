@@ -2,14 +2,16 @@
   description = "Quanchobi's NixOS Config.";
 
   # Seemed to make more of my packages be built instead of pulled from cache, so it is disabled.
-  # nixConfig = {
-  #   substituters = [
-  #     "https://nix-community.cachix.org"
-  #   ];
-  #   trusted-public-keys = [
-  #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-  #   ];
-  # };
+  nixConfig = {
+    trusted-substituters = [
+      "https://nix-community.cachix.org"
+      "https://cache.nixos.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+  };
 
   inputs = {
     agenix = {
@@ -23,9 +25,6 @@
     };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-    # Currently unused, but might add for my desktop.
-    # nixified-ai.url = "github:nixified-ai/flake";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
@@ -48,7 +47,6 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      #nixified-ai, # Currently unused
       nixos-wsl,
       nixvim,
       agenix,
@@ -102,7 +100,6 @@
             ./host/server
             ./host/common
 
-            # inputs.nixified-ai.nixosModules.comfyui
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
