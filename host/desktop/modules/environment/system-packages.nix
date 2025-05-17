@@ -17,6 +17,7 @@
       virtualgl
       moonlight-qt
       via
+      virtiofsd
       wget
       wl-clipboard
       zsh

@@ -39,7 +39,10 @@
 
     stylix.url = "github:danth/stylix/release-24.11";
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -193,9 +196,7 @@
         };
         rpi = nixpkgs.lib.nixosSystem {
           /**
-            My NixOS VM in WSL.
-            Runs on the desktop listed above.
-            I run some AI things on it, as well as use it for development.
+            Generic RasperryPI conf
           */
           system = "aarch64-linux";
           specialArgs = {
