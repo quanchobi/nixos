@@ -25,6 +25,8 @@
       share_ratio_limit = "2.0";
       allow_remote = true;
       enabled_plugins = [ "Label" ];
+      listen_interface = "tailscale0";
+      outgoing_interface = "tailscale0";
     };
 
     web = {

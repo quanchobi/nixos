@@ -11,11 +11,13 @@
       glxinfo
       gperftools
       lazymc
+      tor-browser
       krita
       neovim
       virtualglLib
       virtualgl
       moonlight-qt
+      ryujinx
       via
       virtiofsd
       wget
