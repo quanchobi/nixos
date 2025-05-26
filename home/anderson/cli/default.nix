@@ -18,15 +18,9 @@
     netcat-gnu
     unzip
 
-    # Dev tools
-    cargo
-    nodejs_22
-    python3
-    lua
-
     # Fonts
     aegyptus
-    nerdfonts
+    nerd-fonts.intone-mono
     symbola
   ];
 }

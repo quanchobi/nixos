@@ -18,6 +18,7 @@
       gperftools
       moonlight-qt
       wl-clipboard
+      virtiofsd
     ];
   };
 }

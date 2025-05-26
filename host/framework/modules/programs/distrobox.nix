@@ -5,11 +5,14 @@
   options = { };
 
   config = {
-    virtualisation.podman = {
-      enable = true;
-      dockerCompat = true;
+    virtualisation = {
+      libvirtd.enable = true;
+      spiceUSBRedirection.enable = true;
     };
 
-    environment.systemPackages = [ pkgs.distrobox ];
+    users.groups.libvirtd.members = [ "anderson" ];
+    programs.virt-manager = {
+      enable = true;
+    };
   };
 }

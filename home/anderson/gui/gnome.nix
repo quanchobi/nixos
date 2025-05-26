@@ -10,7 +10,7 @@
       dash-to-dock
       forge
       user-themes
-      tailscale-qs
+      caffeine
       tray-icons-reloaded
     ];
 
@@ -28,11 +28,11 @@
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           blur-my-shell.extensionUuid
+          caffeine.extensionUuid
           forge.extensionUuid
           user-themes.extensionUuid
           dash-to-dock.extensionUuid
           system-monitor.extensionUuid
-          tailscale-qs.extensionUuid
           tray-icons-reloaded.extensionUuid
         ];
 

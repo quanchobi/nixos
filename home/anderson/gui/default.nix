@@ -19,7 +19,7 @@ in
   home.packages = with pkgs; [
     freecad-wayland
     inputs.zen-browser.packages."${system}".default
-    okular
+    kdePackages.okular
     vesktop
     ryujinx
     adwaita-icon-theme
