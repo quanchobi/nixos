@@ -1,4 +1,4 @@
-# nix and nixpkgs config
+{ lib, ... }:
 {
   imports = [ ];
 
@@ -10,8 +10,11 @@
       "flakes"
     ];
 
-    nixpkgs.config = {
-      allowUnfree = true;
+    nixpkgs = {
+      hostPlatform = lib.mkDefault "x86_64-linux";
+      config = {
+        allowUnfree = true;
+      };
     };
 
     # This value determines the NixOS release from which the default

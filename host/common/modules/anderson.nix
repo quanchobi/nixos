@@ -5,7 +5,8 @@
   options = { };
 
   config = {
-    # anderson is the username I use on all of my Linux machines.
+    programs.zsh.enable = true;
+
     users.users.anderson = {
       isNormalUser = true;
       description = "Jacob Hanks";
@@ -18,7 +19,7 @@
         "render"
         "video"
       ];
-      shell = pkgs.nushell;
+      shell = pkgs.zsh;
     };
 
     services.automatic-timezoned.enable = true;

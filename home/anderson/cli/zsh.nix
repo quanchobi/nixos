@@ -8,11 +8,9 @@
       styles = { };
     };
     initContent = ''
-      autoload -U bashcompinit
-      bashcompinit
-      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        exec Hyprland
-          fi
+      export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+      zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+      source <(carapace _carapace)
     '';
     profileExtra = '''';
     envExtra = '''';

@@ -9,7 +9,6 @@ let
   unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
-  # Enable gui programs only if machine is equipped with a gui
   imports = [
     ./foot.nix
     ./gnome.nix
@@ -17,20 +16,17 @@ in
     ./style.nix
   ];
   home.packages = with pkgs; [
+    adwaita-icon-theme
     freecad-wayland
     inputs.zen-browser.packages."${system}".default
     kdePackages.okular
-    vesktop
-    ryujinx
-    adwaita-icon-theme
     love
     lunar-client
-    prismlauncher
-    orca-slicer
-    #godot3
-    godot_4
     obsidian
+    orca-slicer
+    prismlauncher
+    ryujinx
+    vesktop
     zoom-us
-    piper-tts
   ];
 }

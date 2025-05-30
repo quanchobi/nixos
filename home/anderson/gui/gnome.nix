@@ -13,7 +13,6 @@
       caffeine
       tray-icons-reloaded
     ];
-
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = [ "qemu:///system" ];

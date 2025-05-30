@@ -10,18 +10,20 @@
       glibc
       glxinfo
       gperftools
-      lazymc
-      tor-browser
       krita
-      neovim
-      virtualglLib
-      virtualgl
+      lazymc
       moonlight-qt
+      neovim
+      nvtopPackages.full
+      orca-slicer
       ryujinx
-      via
-      virtiofsd
+      tor-browser
       wget
       wl-clipboard
+      via
+      virtiofsd
+      virtualglLib
+      virtualgl
       zsh
     ];
   };
