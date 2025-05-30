@@ -15,6 +15,8 @@
         "wheel"
         "i2c"
         "uinput"
+        "render"
+        "video"
       ];
       shell = pkgs.nushell;
     };

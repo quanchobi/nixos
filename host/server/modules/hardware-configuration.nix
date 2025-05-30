@@ -84,6 +84,22 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  hardware.opengl = {
+    enable = true;
+
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-compute-runtime
+    ];
+
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      intel-media-driver
+      vaapiIntel
+    ];
+  };
+
   # Enable auto update based on my flake, once weekly on Sunday at 1:00
   system.autoUpgrade = {
     enable = true;
