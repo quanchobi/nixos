@@ -17,6 +17,7 @@ in
   ];
   home.packages = with pkgs; [
     adwaita-icon-theme
+    discord
     freecad-wayland
     inputs.zen-browser.packages."${system}".default
     kdePackages.okular
@@ -26,7 +27,6 @@ in
     orca-slicer
     prismlauncher
     ryujinx
-    vesktop
     zoom-us
   ];
 }
