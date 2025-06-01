@@ -17,6 +17,7 @@ in
   ];
   home.packages = with pkgs; [
     adwaita-icon-theme
+    celluloid
     discord
     freecad-wayland
     inputs.zen-browser.packages."${system}".default

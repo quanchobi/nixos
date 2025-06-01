@@ -45,7 +45,7 @@
       markview = {
         enable = true;
         settings = {
-          hybrid_modes = [
+          preview.hybrid_modes = [
             "n"
             "no"
           ];
