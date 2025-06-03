@@ -1,11 +1,12 @@
 {
-  users.groups.multimedia = {};
+  users.groups.multimedia = { };
 
   imports = [
-    ./radarr.nix
-    ./sonarr.nix
-    ./readarr.nix
+    ./bazarr.nix
     ./lidarr.nix
     ./prowlarr.nix
+    ./radarr.nix
+    ./readarr.nix
+    ./sonarr.nix
   ];
 }
