@@ -2,7 +2,7 @@
 let
   domain = "blenny-bramble.ts.net";
 
-  # Jellyfin and the *arrs do not expose their port as a config option.
+  # Jellyfin and the *arrs do not expose their port as a config option. Bazarr is an exception
   jellyfin_port = "8096";
   radarr_port = "7878";
   sonarr_port = "8989";
@@ -221,10 +221,22 @@ in
             };
           }
           {
+            Bazarr = {
+              icon = "bazarr.png";
+              href = "http://server.${domain}:${toString config.services.bazarr.listenPort}";
+              description = "Subtitle manager";
+              # widget = {
+              #   type = "bazarr";
+              #   url = "http://server.${domain}:${toString config.services.bazarr.listenPort}";
+              #   key = "{{HOMEPAGE_VAR_BAZARR_API_KEY}}";
+              # };
+            };
+          }
+          {
             Prowlarr = {
               icon = "prowlarr.png";
               href = "http://server.${domain}:${prowlarr_port}";
-              description = "Servarr manager";
+              description = "Servarr provider manager";
               widget = {
                 type = "prowlarr";
                 url = "http://server.${domain}:${prowlarr_port}";
