@@ -16,6 +16,7 @@
       neovim
       nvtopPackages.full
       orca-slicer
+      qemu-utils
       ryujinx
       tor-browser
       wget
