@@ -3,7 +3,10 @@
   config = {
     # TODO: Some of these need to go to common
     environment.systemPackages = with pkgs; [
+      bsnes-hd
       cmake
+      desmume
+      dolphin-emu
       gcc
       gnumake
       glib
@@ -12,6 +15,8 @@
       gperftools
       krita
       lazymc
+      LycheeSlicer
+      mgba
       moonlight-qt
       neovim
       nvtopPackages.full
