@@ -5,6 +5,7 @@
     environment.systemPackages = with pkgs; [
       gnumake
       cmake
+      dolphin-emu
       hugo
       wget
       zsh
