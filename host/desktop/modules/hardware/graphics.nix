@@ -7,6 +7,13 @@
     ];
   };
 
+  # Shouldn't be necessary.
+  boot.kernelParams = [
+    "nvidia_drm.modeset=1"
+  ];
+
+  programs.xwayland.enable = true;
+
   hardware = {
     graphics.enable = true;
     nvidia = {
@@ -22,6 +29,4 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1"; # wayland electron fix
 }

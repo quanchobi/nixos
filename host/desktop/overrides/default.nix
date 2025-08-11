@@ -1,6 +1,6 @@
 {
   imports = [
-    ./discord.nix
-    ./orca-slicer.nix
+    #./discord.nix
+    #./orca-slicer.nix
   ];
 }

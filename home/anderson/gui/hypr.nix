@@ -7,12 +7,11 @@
 
     settings = {
       env = [
-        "HYPRCURSOR_THEME, hypr_posy_black"
-        "HYPRCURSOR_SIZE, 12"
+        #"HYPRCURSOR_THEME, hypr_posy_black"
+        #"HYPRCURSOR_SIZE, 12"
       ];
       monitor = [
-        "eDP-1, 2560x1600@165, 0x0, 1"
-        ", preferred, auto, 1"
+        ",preferred,auto,1"
       ];
 
       general = {
@@ -27,8 +26,12 @@
           # "ctrl:nocaps"
           # Handled by Kanata
         ];
+        kb_layout = "us";
+        follow_mouse = 1;
+        sensitivity = 0;
       };
 
+      # for laptop
       gestures = {
         workspace_swipe = true;
       };
@@ -36,7 +39,31 @@
       decoration = {
         rounding = 10;
         blur.enabled = false;
+        drop_shadow = true;
+        shadow_render_power = 3;
       };
+
+      # animations = {
+      #   enabled = true;
+      #   bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+      #   animation = [
+      #     "windows, 1, 7, myBezier"
+      #     "windowsOut, 1, 7, default, popin 80%"
+      #     "border, 1, 10, default"
+      #     "borderangle, 1, 8, default"
+      #     "fade, 1, 7, default"
+      #     "workspaces, 1, 6, default"
+      #   ];
+      # };
+
+      # dwindle = {
+      #   pseudotile = true;
+      #   preserve_split = true;
+      # };
+      #
+      # master = {
+      #   new_is_master = true;
+      # };
 
       # Key aliases
       "$mod" = "SUPER";
@@ -44,17 +71,21 @@
 
       # Common application aliases
       "$term" = "foot";
-      "$browser" = "firefox";
-      "$file_browser" = "dolphin";
+      "$browser" = "zen";
+      "$file_browser" = "nautilus";
       "$launcher" = "anyrun";
 
       bind = [
         # Window Management
+        "$mod, Q, exec, kitty"
         "$mod, q, killactive"
-        "$mod, c, togglefloating"
         "$mod, f, fullscreen"
         "SUPER ALT, p, movecurrentworkspacetomonitor, -1"
         "SUPER ALT, n, movecurrentworkspacetomonitor, +1"
+        "$mod, V, togglefloating,"
+        "$mod, R, exec, rofi -show drun"
+        # "$mainMod, P, pseudo," # dwindle
+        # "$mainMod, J, togglesplit," # dwindle
 
         # Focus
         "$mod, h, movefocus, l"
@@ -109,10 +140,11 @@
       ];
 
       exec-once = [
-        "hyprpaper"
+        #"hyprpaper"
         "waybar"
       ];
     };
+
     plugins = [ ];
     systemd = {
       enable = true;
@@ -125,55 +157,351 @@
   };
 
   # Hypridle, Hyprland's idle daemon
-  services.hypridle = {
-    enable = false;
-    settings = {
-      general = {
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-        ignore_dbus_inhibit = false;
-        lock_cmd = "hyprlock";
-      };
-
-      listener = [
-        {
-          timeout = 900;
-          on-timeout = "hyprlock";
-        }
-        {
-          timeout = 1200;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-      ];
-    };
-  };
-
-  services.hyprpaper = {
-    enable = false;
-    settings = {
-      ipc = "on";
-      splash = "false";
-      preload = [ "${config.stylix.image}" ];
-      wallpaper = [ ",${config.stylix.image}" ];
-    };
-  };
+  # services.hypridle = {
+  #   enable = false;
+  #   settings = {
+  #     general = {
+  #       after_sleep_cmd = "hyprctl dispatch dpms on";
+  #       ignore_dbus_inhibit = false;
+  #       lock_cmd = "hyprlock";
+  #     };
+  #
+  #     listener = [
+  #       {
+  #         timeout = 900;
+  #         on-timeout = "hyprlock";
+  #       }
+  #       {
+  #         timeout = 1200;
+  #         on-timeout = "hyprctl dispatch dpms off";
+  #         on-resume = "hyprctl dispatch dpms on";
+  #       }
+  #     ];
+  #   };
+  # };
+  #
+  # services.hyprpaper = {
+  #   enable = false;
+  #   settings = {
+  #     ipc = "on";
+  #     splash = "false";
+  #     preload = [ "${config.stylix.image}" ];
+  #     wallpaper = [ ",${config.stylix.image}" ];
+  #   };
+  # };
 
   programs.waybar = {
-    enable = false;
+    enable = true;
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
-        size = 24;
-        modules-left = [ "hyprland/workspaces" ];
+        height = 30;
+        spacing = 4;
+
+        modules-left = [
+          "hyprland/workspaces"
+          "hyprland/mode"
+          "hyprland/scratchpad"
+        ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
           "pulseaudio"
           "network"
+          "cpu"
+          "memory"
+          "temperature"
+          "backlight"
           "battery"
-          "tray"
           "clock"
+          "tray"
         ];
+
+        "hyprland/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+        };
+
+        "hyprland/mode" = {
+          format = "<span style=\"italic\">{}</span>";
+        };
+
+        "hyprland/scratchpad" = {
+          format = "{icon} {count}";
+          show-empty = false;
+          format-icons = [
+            ""
+            ""
+          ];
+        };
+
+        tray = {
+          spacing = 10;
+        };
+
+        clock = {
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%Y-%m-%d}";
+        };
+
+        cpu = {
+          format = "{usage}% ";
+          tooltip = false;
+        };
+
+        memory = {
+          format = "{}% ";
+        };
+
+        temperature = {
+          critical-threshold = 80;
+          format = "{temperatureC}°C {icon}";
+          format-icons = [
+            ""
+            ""
+            ""
+          ];
+        };
+
+        backlight = {
+          format = "{percent}% {icon}";
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
+        };
+
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
+          format-alt = "{time} {icon}";
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
+        };
+
+        network = {
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
+
+        pulseaudio = {
+          format = "{volume}% {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [
+              ""
+              ""
+              ""
+            ];
+          };
+          on-click = "pavucontrol";
+        };
+      };
+    };
+
+    style = ''
+      * {
+        border: none;
+        border-radius: 0;
+        font-family: 'Font Awesome 5 Free', 'Ubuntu';
+        font-size: 13px;
+        min-height: 0;
+      }
+
+      window#waybar {
+        background-color: rgba(43, 48, 59, 0.8);
+        border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+        color: #ffffff;
+        transition-property: background-color;
+        transition-duration: .5s;
+      }
+
+      button {
+        box-shadow: inset 0 -3px transparent;
+        border: none;
+        border-radius: 0;
+      }
+
+      #workspaces button {
+        padding: 0 5px;
+        background-color: transparent;
+        color: #ffffff;
+      }
+
+      #workspaces button:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      #workspaces button.focused {
+        background-color: #64727D;
+        box-shadow: inset 0 -3px #ffffff;
+      }
+
+      #workspaces button.urgent {
+        background-color: #eb4d4b;
+      }
+
+      #mode {
+        background-color: #64727D;
+        border-bottom: 3px solid #ffffff;
+      }
+
+      #clock,
+      #battery,
+      #cpu,
+      #memory,
+      #temperature,
+      #backlight,
+      #network,
+      #pulseaudio,
+      #tray,
+      #mode,
+      #scratchpad {
+        padding: 0 10px;
+        color: #ffffff;
+      }
+
+      #window,
+      #workspaces {
+        margin: 0 4px;
+      }
+
+      .modules-left > widget:first-child > #workspaces {
+        margin-left: 0;
+      }
+
+      .modules-right > widget:last-child > #workspaces {
+        margin-right: 0;
+      }
+
+      #clock {
+        background-color: #64727D;
+      }
+
+      #battery {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      #battery.charging, #battery.plugged {
+        color: #ffffff;
+        background-color: #26A65B;
+      }
+
+      @keyframes blink {
+        to {
+          background-color: #ffffff;
+          color: #000000;
+        }
+      }
+
+      #battery.critical:not(.charging) {
+        background-color: #f53c3c;
+        color: #ffffff;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      label:focus {
+        background-color: #000000;
+      }
+
+      #cpu {
+        background-color: #2ecc71;
+        color: #000000;
+      }
+
+      #memory {
+        background-color: #9b59b6;
+      }
+
+      #network {
+        background-color: #2980b9;
+      }
+
+      #network.disconnected {
+        background-color: #f53c3c;
+      }
+
+      #pulseaudio {
+        background-color: #f1c40f;
+        color: #000000;
+      }
+
+      #pulseaudio.muted {
+        background-color: #90b1b1;
+        color: #2a5c45;
+      }
+
+      #temperature {
+        background-color: #f0932b;
+      }
+
+      #temperature.critical {
+        background-color: #eb4d4b;
+      }
+
+      #tray {
+        background-color: #2980b9;
+      }
+
+      #scratchpad {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      #scratchpad.empty {
+        background-color: transparent;
+      }
+    '';
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        width = 300;
+        height = 300;
+        offset = "30x50";
+        origin = "top-right";
+        transparency = 10;
+      };
+
+      urgency_normal = {
+        timeout = 10;
       };
     };
   };

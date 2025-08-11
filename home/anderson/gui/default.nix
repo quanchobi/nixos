@@ -28,6 +28,7 @@ in
     orca-slicer
     prismlauncher
     ryujinx
+    wl-clipboard
     zoom-us
   ];
 }

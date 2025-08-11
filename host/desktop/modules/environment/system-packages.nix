@@ -7,6 +7,7 @@
       cmake
       desmume
       dolphin-emu
+      distrobox
       gcc
       gnumake
       glib
@@ -23,6 +24,7 @@
       orca-slicer
       qemu-utils
       ryujinx
+      rpi-imager
       tor-browser
       wget
       wl-clipboard

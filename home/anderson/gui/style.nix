@@ -22,7 +22,7 @@
 
       cursorTheme = {
         package = pkgs.posy-cursors;
-        name = "Posy Cursor Black";
+        name = "Posy_Cursor_Black";
         size = 16;
       };
     };
