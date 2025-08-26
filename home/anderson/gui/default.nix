@@ -18,16 +18,15 @@ in
   home.packages = with pkgs; [
     adwaita-icon-theme
     celluloid
-    discord
     freecad-wayland
     inputs.zen-browser.packages."${system}".default
     kdePackages.okular
     love
     lunar-client
     obsidian
-    orca-slicer
     prismlauncher
     ryujinx
+    vesktop
     wl-clipboard
     zoom-us
   ];

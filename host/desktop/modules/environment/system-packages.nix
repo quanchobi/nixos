@@ -6,6 +6,7 @@
       bsnes-hd
       cmake
       desmume
+      discord
       dolphin-emu
       distrobox
       gcc
@@ -14,6 +15,7 @@
       glibc
       glxinfo
       gperftools
+      kitty
       krita
       lazymc
       LycheeSlicer
@@ -21,7 +23,6 @@
       moonlight-qt
       neovim
       nvtopPackages.full
-      orca-slicer
       qemu-utils
       ryujinx
       rpi-imager
