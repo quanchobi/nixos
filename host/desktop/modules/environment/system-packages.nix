@@ -15,6 +15,7 @@
       glibc
       glxinfo
       gperftools
+      hugo
       kitty
       krita
       lazymc
