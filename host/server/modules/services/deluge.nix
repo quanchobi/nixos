@@ -78,4 +78,8 @@
       openFirewall = true;
     };
   };
+
+  systemd.services.deluge.serviceConfig = {
+    UMask = "0002";
+  };
 }
