@@ -9,6 +9,9 @@
         "deepseek-r1"
         "qwen2.5-coder"
         "codestral"
+        "gemma3:4b"
+        "gemma3:12b"
+        "gemma3:27b"
       ];
     };
 
