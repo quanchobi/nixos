@@ -27,6 +27,7 @@
       qemu-utils
       ryujinx
       rpi-imager
+      teams-for-linux
       tor-browser
       wget
       wl-clipboard

@@ -11,6 +11,7 @@
       # Manually enabled tmux
       targets.tmux.enable = false;
       targets.kitty.enable = true;
+      targets.qt.enable = false;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/espresso.yaml";
     };
 

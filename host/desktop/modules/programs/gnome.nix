@@ -10,7 +10,7 @@
       desktopManager.gnome.enable = true;
       displayManager.gdm = {
         enable = true;
-        wayland = false;
+        wayland = false; # x11 only (nvidia)
       };
     };
 

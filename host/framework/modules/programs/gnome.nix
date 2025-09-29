@@ -23,8 +23,6 @@
 
     stylix = {
       enable = true;
-      image = ../../../../assets/desktop.jpg;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/espresso.yaml";
       targets.qt.enable = false; # see: https://github.com/NixOS/nixpkgs/issues/416914
 
       polarity = "dark";
