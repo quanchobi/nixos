@@ -79,7 +79,10 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                sharedModules = [ nixvim.homeManagerModules.nixvim ];
+                sharedModules = [
+                  nixvim.homeManagerModules.nixvim
+                  stylix.homeModules.stylix
+                ];
                 users.anderson = import ./home/anderson/home.nix;
                 extraSpecialArgs = {
                   inherit inputs;
