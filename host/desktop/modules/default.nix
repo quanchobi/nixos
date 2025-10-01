@@ -6,5 +6,7 @@
     ./hardware
     ./programs
     ./services
+
+    ../../common/modules/gui.nix
   ];
 }

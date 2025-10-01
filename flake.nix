@@ -73,23 +73,6 @@
 
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                sharedModules = [
-                  nixvim.homeManagerModules.nixvim
-                  stylix.homeModules.stylix
-                ];
-                users.anderson = import ./home/anderson/home.nix;
-                extraSpecialArgs = {
-                  inherit inputs;
-                  enableGui = true;
-                };
-              };
-            }
           ];
         };
 
@@ -110,20 +93,6 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                sharedModules = [ nixvim.homeManagerModules.nixvim ];
-                users.anderson = import ./home/anderson/home.nix;
-                extraSpecialArgs = {
-                  inherit inputs;
-                  enableGui = false;
-                };
-              };
-            }
           ];
         };
 
@@ -144,25 +113,6 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
-
-            # Import home-manager configuration
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                sharedModules = [
-                  nixvim.homeManagerModules.nixvim
-                  stylix.homeModules.stylix
-                ];
-
-                users.anderson = import ./home/anderson/home.nix;
-                extraSpecialArgs = {
-                  inherit inputs;
-                  enableGui = true;
-                };
-              };
-            }
           ];
         };
 
@@ -184,21 +134,6 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                sharedModules = [ nixvim.homeManagerModules.nixvim ];
-
-                users.anderson = import ./home/anderson/home.nix;
-                extraSpecialArgs = {
-                  inherit inputs;
-                  enableGui = false;
-                };
-              };
-            }
           ];
         };
         rpi = nixpkgs.lib.nixosSystem {
@@ -216,23 +151,9 @@
             inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                sharedModules = [ nixvim.homeManagerModules.nixvim ];
-
-                users.anderson = import ./home/anderson/home.nix;
-                extraSpecialArgs = {
-                  inherit inputs;
-                  enableGui = false;
-                };
-              };
-            }
           ];
         };
       };
     };
 }
+

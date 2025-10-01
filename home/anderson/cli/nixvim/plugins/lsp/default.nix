@@ -1,8 +1,8 @@
 {
   imports = [
     ./conform.nix
+    ./lint.nix
     ./lsp.nix
     ./lspsaga.nix
-    ./none-ls.nix
   ];
 }

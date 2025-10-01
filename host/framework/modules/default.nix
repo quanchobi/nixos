@@ -6,5 +6,7 @@
     ./environment
     ./programs
     ./services
+
+    ../../common/modules/gui.nix
   ];
 }
