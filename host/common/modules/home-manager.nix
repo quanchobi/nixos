@@ -15,7 +15,7 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       sharedModules = [
-        inputs.nixvim.homeManagerModules.nixvim
+        inputs.nixvim.homeManagerModules.default
       ]
       ++ lib.optionals config.system.gui.enable [
         inputs.stylix.homeModules.stylix

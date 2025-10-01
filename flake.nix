@@ -32,10 +32,7 @@
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:quanchobi/nixvim";
 
     stylix.url = "github:danth/stylix/release-25.05";
 
@@ -71,6 +68,7 @@
             ./host/framework
             ./host/common
 
+            inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
           ];
@@ -90,7 +88,7 @@
             ./host/server
             ./host/common
 
-            inputs.nixvim.nixosModules.nixvim
+            inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
           ];
@@ -110,7 +108,7 @@
             ./host/common
             ./host/desktop
 
-            inputs.nixvim.nixosModules.nixvim
+            inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
           ];
@@ -131,7 +129,7 @@
             ./host/wsl
 
             nixos-wsl.nixosModules.default
-            inputs.nixvim.nixosModules.nixvim
+            inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
           ];
@@ -148,7 +146,7 @@
             ./host/common
             ./host/rpi
 
-            inputs.nixvim.nixosModules.nixvim
+            inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
           ];
@@ -156,4 +154,3 @@
       };
     };
 }
-
