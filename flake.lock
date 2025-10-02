@@ -448,11 +448,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1759371276,
-        "narHash": "sha256-c5hZqqgZYQx3+7w/mLJtV/I4nb1fdQdOEbCDkVFBtXI=",
+        "lastModified": 1759372790,
+        "narHash": "sha256-r5lyyhfp7auKCkHGCk0iIh99wdH9huRPAC9QgoHsy+I=",
         "owner": "quanchobi",
         "repo": "home-manager",
-        "rev": "4825e7d7a02c8577f2edc84186c15ca9419003f4",
+        "rev": "e4c2645b17b349f5b1cb914f2c758a10a96d25f4",
         "type": "github"
       },
       "original": {
