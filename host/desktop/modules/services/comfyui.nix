@@ -1,4 +1,3 @@
-_:
 {
   users.users.anderson.extraGroups = [ "docker" ];
 

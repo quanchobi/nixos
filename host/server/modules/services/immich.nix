@@ -1,4 +1,3 @@
-_:
 {
   # age.secrets.photoprism-admin-passwd.file = ../../../../secrets/photoprism-admin-passwd.age;
   #

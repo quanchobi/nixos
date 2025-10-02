@@ -1,4 +1,3 @@
-_:
 {
   # Override orca-slicer to run on mesa instead of nvidia
   nixpkgs.overlays = [
