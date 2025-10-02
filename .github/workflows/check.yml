@@ -37,7 +37,10 @@ jobs:
 
       - name: Check for evaluation errors
         run: |
-          nix eval .#nixosModules.default --apply 'x: true'
+          nix eval .#server --apply 'x: true'
+          nix eval .#framework --apply 'x: true'
+          nix eval .#desktop --apply 'x: true'
+          nix eval .#wsl --apply 'x: true'
 
   deadnix-check:
     runs-on: ubuntu-latest
