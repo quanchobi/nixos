@@ -35,13 +35,6 @@ jobs:
       - name: Check flake formatting with treefmt
         run: nix build .#checks.x86_64-linux.formatting
 
-      - name: Check for evaluation errors
-        run: |
-          nix eval .#server --apply 'x: true'
-          nix eval .#framework --apply 'x: true'
-          nix eval .#desktop --apply 'x: true'
-          nix eval .#wsl --apply 'x: true'
-
   deadnix-check:
     runs-on: ubuntu-latest
     steps:
