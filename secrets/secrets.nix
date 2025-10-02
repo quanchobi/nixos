@@ -20,10 +20,6 @@ let
     desktop
     anderson
   ];
-
-  users = [
-    anderson
-  ];
 in
 {
   #"anthropic-api-key.age".publicKeys = anderson;

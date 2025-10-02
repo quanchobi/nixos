@@ -1,8 +1,8 @@
 # Adds vencord + openASAR for functionality and fixes issue with discord not launching in wayland on nvidia.
 {
   nixpkgs.overlays = [
-    (final: prev: {
-      discord = prev.discord.overrideAttrs (oldAttrs: {
+    (_final: prev: {
+      discord = prev.discord.overrideAttrs (_oldAttrs: {
         withOpenASAR = true;
         withVencord = true;
 

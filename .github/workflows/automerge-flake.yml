@@ -8,21 +8,21 @@ jobs:
   auto-merge:
     runs-on: ubuntu-latest
     if: github.actor == 'github-actions[bot]' || contains(github.event.pull_request.labels.*.name, 'flake-update')
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+
       - name: Setup Nix
         uses: cachix/install-nix-action@v30
-      
+
       - name: Verify flake update
         run: |
           nix flake check
           # Additional validation if needed
-          
+
       - name: Auto-merge PR
         if: success()
         uses: pascalgn/automerge-action@v0.15.6

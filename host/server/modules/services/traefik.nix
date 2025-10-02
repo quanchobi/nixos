@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ config, ... }:
 let
   domain = "homelab.blenny-bramble.io";
   tailscale_domain = "blenny-bramble.ts.net";

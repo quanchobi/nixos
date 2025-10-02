@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -13,62 +12,67 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+  boot = {
+    loader.systemd-boot.enable = true;
+    initrd = {
+      luks.devices."cryptraid" = {
+        device = "/dev/md0";
+        keyFile = "/dev/sdg";
+        keyFileSize = 4096;
+        fallbackToPassword = true;
+      };
 
-  boot.loader.systemd-boot.enable = true;
+      availableKernelModules = [
+        "ahci"
+        "xhci_pci"
+        "ehci_pci"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
 
-  boot.initrd.availableKernelModules = [
-    "ahci"
-    "xhci_pci"
-    "ehci_pci"
-    "nvme"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+    swraid = {
+      enable = true;
+      mdadmConf = ''
+        ARRAY /dev/md/ubuntu-server:0 metadata=1.2 UUID=baf541ae:92088960:7f78756d:e4243e39
+        ARRAY /dev/md/mirror-sda-sde-8tb metadata=1.2 UUID=f040d796:2cf11a73:637e450e:a4e173fe
+        MAILADDR quanchobi@proton.me
+      '';
+    };
 
-  boot.swraid = {
-    enable = true;
-    mdadmConf = ''
-      ARRAY /dev/md/ubuntu-server:0 metadata=1.2 UUID=baf541ae:92088960:7f78756d:e4243e39
-      ARRAY /dev/md/mirror-sda-sde-8tb metadata=1.2 UUID=f040d796:2cf11a73:637e450e:a4e173fe
-      MAILADDR quanchobi@proton.me
-    '';
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/4b7d2631-e9cb-496f-9426-1b5731f31e65";
-    fsType = "btrfs";
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/4b7d2631-e9cb-496f-9426-1b5731f31e65";
+      fsType = "btrfs";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/31EA-479E";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/31EA-479E";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
 
-  # Raid 5 mdadm array with 3 2tb disks.
-  fileSystems."/mnt/crypt" = {
-    device = "/dev/disk_array_2/lv-0";
-    fsType = "btrfs";
-  };
+    # Raid 5 mdadm array with 3 2tb disks.
+    "/mnt/crypt" = {
+      device = "/dev/disk_array_2/lv-0";
+      fsType = "btrfs";
+    };
 
-  # Raid 1 mdadm array with 2 8tb disks.
-  fileSystems."/mnt/mirror-8tb" = {
-    device = "/dev/md/mirror-sda-sde-8tb";
-    fsType = "btrfs";
-  };
-
-  boot.initrd.luks.devices."cryptraid" = {
-    device = "/dev/md0";
-    keyFile = "/dev/sdg";
-    keyFileSize = 4096;
-    fallbackToPassword = true;
+    # Raid 1 mdadm array with 2 8tb disks.
+    "/mnt/mirror-8tb" = {
+      device = "/dev/md/mirror-sda-sde-8tb";
+      fsType = "btrfs";
+    };
   };
 
   swapDevices = [ ];

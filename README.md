@@ -7,6 +7,7 @@ This is my personal NixOS system configuration flake. There are many like it, bu
 ## 📁 Organization
 
 The basic organization is something like this:
+
 ```
 nixos
 ├─── README.md

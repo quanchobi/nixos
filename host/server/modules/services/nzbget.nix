@@ -1,5 +1,5 @@
 {
-  services.nzbget = { 
+  services.nzbget = {
     enable = true;
     group = "multimedia";
   };

@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -20,14 +19,18 @@
     age.secrets.samba-credentials.file = ../../../secrets/samba-credentials.age;
 
     boot = {
-      initrd.availableKernelModules = [
-        "nvme"
-        "xhci_pci"
-        "thunderbolt"
-        "usb_storage"
-        "sd_mod"
-      ];
-      initrd.kernelModules = [ "amdgpu" ];
+      initrd = {
+        availableKernelModules = [
+          "nvme"
+          "xhci_pci"
+          "thunderbolt"
+          "usb_storage"
+          "sd_mod"
+        ];
+        kernelModules = [ "amdgpu" ];
+        luks.devices."luks-ac051e3d-bfc6-409a-a3e6-a0c9c4894a03".device =
+          "/dev/disk/by-uuid/ac051e3d-bfc6-409a-a3e6-a0c9c4894a03";
+      };
       kernelParams = [
         "quiet"
         "splash"
@@ -49,33 +52,31 @@
     services.udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     '';
+    fileSystems = {
+      "/" = {
+        device = "/dev/disk/by-uuid/8a551343-7c61-4195-ad17-140591f4e875";
+        fsType = "btrfs";
+        options = [ "subvol=@" ];
+      };
 
-    fileSystems."/" = {
-      device = "/dev/disk/by-uuid/8a551343-7c61-4195-ad17-140591f4e875";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
+      "/boot" = {
+        device = "/dev/disk/by-uuid/FD13-9562";
+        fsType = "vfat";
+        options = [
+          "fmask=0022"
+          "dmask=0022"
+        ];
+      };
 
-    boot.initrd.luks.devices."luks-ac051e3d-bfc6-409a-a3e6-a0c9c4894a03".device =
-      "/dev/disk/by-uuid/ac051e3d-bfc6-409a-a3e6-a0c9c4894a03";
-
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-uuid/FD13-9562";
-      fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-      ];
-    };
-
-    fileSystems."/mnt/share" = {
-      device = "//server/mediashare";
-      fsType = "cifs";
-      options =
-        let
-          automount_opts = "x-systemd.requires=tailscaled.service,x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=30s";
-        in
-        [ "${automount_opts},credentials=${config.age.secrets.samba-credentials.path},uid=anderson" ];
+      "/mnt/share" = {
+        device = "//server/mediashare";
+        fsType = "cifs";
+        options =
+          let
+            automount_opts = "x-systemd.requires=tailscaled.service,x-systemd.automount,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=30s";
+          in
+          [ "${automount_opts},credentials=${config.age.secrets.samba-credentials.path},uid=anderson" ];
+      };
     };
 
     swapDevices = [ ];

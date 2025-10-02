@@ -1,25 +1,18 @@
 { pkgs, ... }:
 let
-  jellyfin-ffmpeg-overlay = (
-    final: prev: {
-      jellyfin-ffmpeg = prev.jellyfin-ffmpeg.override {
-        ffmpeg_7-full = prev.ffmpeg_7-full.override {
-          withMfx = false;
-          withVpl = true;
-          withUnfree = true;
-        };
+  jellyfin-ffmpeg-overlay = _final: prev: {
+    jellyfin-ffmpeg = prev.jellyfin-ffmpeg.override {
+      ffmpeg_7-full = prev.ffmpeg_7-full.override {
+        withMfx = false;
+        withVpl = true;
+        withUnfree = true;
       };
-    }
-  );
+    };
+  };
 in
 {
   nixpkgs.overlays = [ jellyfin-ffmpeg-overlay ];
 
-  services.jellyfin = {
-    enable = true;
-    user = "jellyfin";
-    group = "jellyfin";
-  };
   environment.systemPackages = with pkgs; [
     jellyfin
     jellyfin-web
@@ -39,7 +32,6 @@ in
       intel-ocl
     ];
   };
-  services.logrotate.enable = true;
 
   users.users.jellyfin = {
     extraGroups = [
@@ -48,7 +40,17 @@ in
     ];
   };
 
-  services.udev.extraRules = ''
-    KERNEL=="renderD*", GROUP="render", MODE="0666"
-  '';
+  services = {
+    jellyfin = {
+      enable = true;
+      user = "jellyfin";
+      group = "jellyfin";
+    };
+
+    logrotate.enable = true;
+
+    udev.extraRules = ''
+      KERNEL=="renderD*", GROUP="render", MODE="0666"
+    '';
+  };
 }
