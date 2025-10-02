@@ -99,8 +99,8 @@
             ./host/framework
             ./host/common
 
-            inputs.nixvim.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            nixvim.nixosModules.default
+            stylix.nixosModules.stylix
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
@@ -123,8 +123,8 @@
             ./host/server
             ./host/common
 
-            inputs.nixvim.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            nixvim.nixosModules.default
+            stylix.nixosModules.stylix
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
@@ -147,8 +147,8 @@
             ./host/common
             ./host/desktop
 
-            inputs.nixvim.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            nixvim.nixosModules.default
+            stylix.nixosModules.stylix
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
@@ -172,8 +172,8 @@
             ./host/wsl
 
             nixos-wsl.nixosModules.default
-            inputs.nixvim.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            nixvim.nixosModules.default
+            stylix.nixosModules.stylix
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
@@ -194,7 +194,7 @@
             ./host/rpi
 
             inputs.nixvim.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            stylix.nixosModules.stylix
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager

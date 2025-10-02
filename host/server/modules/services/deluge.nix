@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   age.secrets.deluge-credentials.file = ../../.../../../../secrets/deluge-credentials.age;
 
