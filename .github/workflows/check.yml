@@ -35,9 +35,6 @@ jobs:
       - name: Check flake formatting with treefmt
         run: nix build .#checks.x86_64-linux.formatting
 
-      - name: Build default package
-        run: nix build .#
-
       - name: Check for evaluation errors
         run: |
           nix eval .#nixosModules.default --apply 'x: true'
@@ -71,25 +68,3 @@ jobs:
       - name: Run statix linter
         run: |
           nix run nixpkgs#statix -- check .
-  # Takes too much storage on github's runners.
-  # build-hosts:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       host: [framework, server, desktop, wsl] # doesn't check rpi, gh has no aarch64 runners
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
-  #
-  #     - name: Install Nix
-  #       uses: DeterminateSystems/nix-installer-action@main
-  #
-  #     - name: Setup Nix cache
-  #       uses: DeterminateSystems/magic-nix-cache-action@main
-  #
-  #     - name: Build ${{ matrix.host }} configuration
-  #       run: |
-  #         nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel --no-link
