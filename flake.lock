@@ -444,14 +444,15 @@
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "stylix": "stylix",
+        "treefmt-nix": "treefmt-nix_3",
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1759368523,
-        "narHash": "sha256-G8zLUceMs5aZhqLkXKioHo6PhlCXCfZCMCXUF/y6LBE=",
+        "lastModified": 1759371276,
+        "narHash": "sha256-c5hZqqgZYQx3+7w/mLJtV/I4nb1fdQdOEbCDkVFBtXI=",
         "owner": "quanchobi",
         "repo": "home-manager",
-        "rev": "c41235adf99f2da2a1001d5cc1538dc9fa85a1bf",
+        "rev": "4825e7d7a02c8577f2edc84186c15ca9419003f4",
         "type": "github"
       },
       "original": {
@@ -816,7 +817,7 @@
       "inputs": {
         "nixpkgs": "nixpkgs_7",
         "nixvim": "nixvim_4",
-        "treefmt-nix": "treefmt-nix_3"
+        "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
         "lastModified": 1759357135,
@@ -894,7 +895,7 @@
           "stylix",
           "nixpkgs"
         ],
-        "treefmt-nix": "treefmt-nix_4"
+        "treefmt-nix": "treefmt-nix_5"
       },
       "locked": {
         "lastModified": 1751320053,
@@ -968,7 +969,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim_3",
         "stylix": "stylix_2",
-        "treefmt-nix": "treefmt-nix_5",
+        "treefmt-nix": "treefmt-nix_6",
         "zen-browser": "zen-browser_2"
       }
     },
@@ -1348,7 +1349,10 @@
     },
     "treefmt-nix_3": {
       "inputs": {
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": [
+          "home-manager",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1758728421,
@@ -1365,6 +1369,24 @@
       }
     },
     "treefmt-nix_4": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1758728421,
+        "narHash": "sha256-ySNJ008muQAds2JemiyrWYbwbG+V7S5wg3ZVKGHSFu8=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "5eda4ee8121f97b218f7cc73f5172098d458f1d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_5": {
       "inputs": {
         "nixpkgs": [
           "stylix",
@@ -1386,7 +1408,7 @@
         "type": "github"
       }
     },
-    "treefmt-nix_5": {
+    "treefmt-nix_6": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
