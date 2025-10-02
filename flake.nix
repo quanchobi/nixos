@@ -181,27 +181,6 @@
             { system.gui.enable = false; }
           ];
         };
-        rpi = nixpkgs.lib.nixosSystem {
-          /**
-            Generic RasperryPI conf
-          */
-          system = "aarch64-linux";
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./host/common
-            ./host/rpi
-
-            inputs.nixvim.nixosModules.default
-            stylix.nixosModules.stylix
-            agenix.nixosModules.default
-
-            home-manager.inputs.home-manager.nixosModules.home-manager
-            home-manager.nixosModules.default
-            { system.gui.enable = false; }
-          ];
-        };
       };
     };
 }
