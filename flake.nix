@@ -19,10 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:quanchobi/home-manager";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
@@ -71,6 +68,10 @@
             inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
+            home-manager.inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.default
+            { system.gui.enable = true; }
           ];
         };
 
@@ -91,6 +92,10 @@
             inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
+            home-manager.inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.default
+            { system.gui.enable = false; }
           ];
         };
 
@@ -111,6 +116,10 @@
             inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
+            home-manager.inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.default
+            { system.gui.enable = true; }
           ];
         };
 
@@ -132,6 +141,10 @@
             inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
+            home-manager.inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.default
+            { system.gui.enable = false; }
           ];
         };
         rpi = nixpkgs.lib.nixosSystem {
@@ -149,6 +162,10 @@
             inputs.nixvim.nixosModules.default
             inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
+
+            home-manager.inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.default
+            { system.gui.enable = false; }
           ];
         };
       };
