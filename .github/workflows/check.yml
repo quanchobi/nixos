@@ -1,0 +1,95 @@
+name: Check and Validate
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+  schedule:
+    # Run at 01:00 UTC on the 1st of every month (after flake update)
+    - cron: "0 1 1 * *"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Check out the update branch if it exists
+          ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Format code with treefmt
+        run: nix fmt
+
+      - name: Run flake check
+        run: nix flake check --all-systems
+
+      - name: Check flake formatting with treefmt
+        run: nix build .#checks.x86_64-linux.formatting
+
+      - name: Build default package
+        run: nix build .#
+
+      - name: Check for evaluation errors
+        run: |
+          nix eval .#nixosModules.default --apply 'x: true' 
+
+  deadnix-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Check for dead code with deadnix
+        run: |
+          nix run nixpkgs#deadnix -- --fail .
+
+  statix-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Run statix linter
+        run: |
+          nix run nixpkgs#statix -- check .
+  build-hosts:
+  runs-on: ubuntu-latest
+  strategy:
+    fail-fast: false
+    matrix:
+      host: [framework, server, desktop, wsl] # doesn't check rpi, gh has no aarch64 runners
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
+
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+
+    - name: Setup Nix cache
+      uses: DeterminateSystems/magic-nix-cache-action@main
+
+    - name: Build ${{ matrix.host }} configuration
+      run: |
+        nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel --no-link
+

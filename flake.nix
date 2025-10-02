@@ -21,8 +21,6 @@
 
     home-manager.url = "github:quanchobi/home-manager";
 
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -32,6 +30,11 @@
     nixvim.url = "github:quanchobi/nixvim";
 
     stylix.url = "github:danth/stylix/release-25.05";
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -48,9 +51,41 @@
       nixvim,
       agenix,
       stylix,
+      treefmt-nix,
       ...
     }@inputs:
+    let
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      treefmtEval = forAllSystems (
+        system:
+        treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} {
+          projectRootFile = "flake.nix";
+          programs = {
+            nixfmt.enable = true; # Format Nix files
+            prettier.enable = true; # Format JSON, YAML, Markdown
+            shellcheck.enable = true; # Lint shell scripts
+            shfmt.enable = true; # Format shell scripts
+          };
+          settings.formatter = {
+            prettier.excludes = [ "*.lock" ];
+          };
+        }
+      );
+    in
     {
+      # Formatter for `nix fmt`
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+
+      # Checks for `nix flake check`
+      checks = forAllSystems (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
+
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           /**
