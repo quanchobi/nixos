@@ -72,24 +72,24 @@ jobs:
         run: |
           nix run nixpkgs#statix -- check .
   build-hosts:
-  runs-on: ubuntu-latest
-  strategy:
-    fail-fast: false
-    matrix:
-      host: [framework, server, desktop, wsl] # doesn't check rpi, gh has no aarch64 runners
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [framework, server, desktop, wsl] # doesn't check rpi, gh has no aarch64 runners
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.schedule && 'update-flake-lock' || github.ref }}
 
-    - name: Install Nix
-      uses: DeterminateSystems/nix-installer-action@main
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
 
-    - name: Setup Nix cache
-      uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
 
-    - name: Build ${{ matrix.host }} configuration
-      run: |
-        nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel --no-link
+      - name: Build ${{ matrix.host }} configuration
+        run: |
+          nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel --no-link
 
