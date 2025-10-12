@@ -6,7 +6,11 @@
 
   config = {
     virtualisation = {
-      libvirtd.enable = true;
+      libvirtd = {
+        enable = true;
+        onBoot = "start";
+        onShutdown = "shutdown";
+      };
       spiceUSBRedirection.enable = true;
     };
 

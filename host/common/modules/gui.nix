@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     gnumake
     cmake
+    distrobox
     dolphin-emu
     hugo
     wget
@@ -16,6 +17,7 @@
     glxinfo
     gperftools
     moonlight-qt
+    podman
     wl-clipboard
     virtiofsd
   ];
