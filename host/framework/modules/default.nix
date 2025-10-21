@@ -1,5 +1,6 @@
 {
   imports = [
+    ./anderson.nix
     ./hardware-configuration.nix
     ./nix-configuration.nix
 
