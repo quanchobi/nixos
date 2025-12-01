@@ -10,6 +10,7 @@
       kitty
       krita
       lazymc
+      lmstudio
       LycheeSlicer
       mgba
       nvtopPackages.full

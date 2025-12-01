@@ -3,7 +3,7 @@
     ./audio.nix
     ./bluetooth.nix
     ./bootloader.nix
-    ./comfyui.nix
+    # ./comfyui.nix # doesn't work
     ./hardware-support.nix
     ./networking.nix
     ./ollama.nix
