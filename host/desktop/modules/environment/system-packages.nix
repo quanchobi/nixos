@@ -16,7 +16,6 @@
       nvtopPackages.full
       qemu-utils
       ryujinx
-      rpi-imager
       teams-for-linux
       tor-browser
       via
