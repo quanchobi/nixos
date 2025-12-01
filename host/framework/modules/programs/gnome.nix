@@ -19,6 +19,7 @@
       extraPackages = with pkgs.rocmPackages; [
         clr.icd
         clr
+
         rocm-runtime
         rocm-device-libs
         rocm-smi

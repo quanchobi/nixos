@@ -27,7 +27,11 @@
           "usb_storage"
           "sd_mod"
         ];
-        kernelModules = [ "amdgpu" ];
+        kernelModules = [
+          "amdgpu"
+          "kfd"
+          "amd_iommu_v2"
+        ];
         luks.devices."luks-ac051e3d-bfc6-409a-a3e6-a0c9c4894a03".device =
           "/dev/disk/by-uuid/ac051e3d-bfc6-409a-a3e6-a0c9c4894a03";
       };
@@ -51,6 +55,8 @@
 
     services.udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+      SUBSYSTEM=="kfd", KERNEL=="kfd", MODE="0666"
+      SUBSYSTEM=="amdgpu", KERNEL=="amdgpu", MODE="0666"
     '';
     fileSystems = {
       "/" = {
