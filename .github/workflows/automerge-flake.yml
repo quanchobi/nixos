@@ -1,35 +1,49 @@
-name: Auto-merge Flake Update PRs
+name: Auto-merge Flake Updates
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled]
+  schedule:
+    # Run at 02:00 UTC on the 1st of every month (after checks complete)
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
 
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
-    if: github.actor == 'github-actions[bot]' || contains(github.event.pull_request.labels.*.name, 'flake-update')
-
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup Nix
-        uses: cachix/install-nix-action@v30
-
-      - name: Verify flake update
+      - name: Check if update PR exists
+        id: check_pr
         run: |
-          nix flake check
-          # Additional validation if needed
-
-      - name: Auto-merge PR
-        if: success()
-        uses: pascalgn/automerge-action@v0.15.6
+          PR_NUMBER=$(gh pr list --head update-flake-lock --json number --jq '.[0].number')
+          if [ -z "$PR_NUMBER" ]; then
+            echo "No update PR found"
+            echo "exists=false" >> $GITHUB_OUTPUT
+          else
+            echo "Found PR #$PR_NUMBER"
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "number=$PR_NUMBER" >> $GITHUB_OUTPUT
+          fi
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "flake-update,dependencies,automerge"
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "Auto-merge flake update"
-          MERGE_REQUIRED_APPROVALS: "0"
-          MERGE_DELETE_BRANCH: "true"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for checks to complete
+        if: steps.check_pr.outputs.exists == 'true'
+        run: |
+          echo "Waiting for checks on PR #${{ steps.check_pr.outputs.number }}"
+          gh pr checks ${{ steps.check_pr.outputs.number }} --watch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge PR if checks passed
+        if: steps.check_pr.outputs.exists == 'true'
+        run: |
+          gh pr merge ${{ steps.check_pr.outputs.number }} --squash --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
