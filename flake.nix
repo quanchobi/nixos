@@ -27,8 +27,6 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     nixvim.url = "github:quanchobi/nixvim";
 
     stylix.url = "github:danth/stylix/release-25.05";
@@ -50,7 +48,6 @@
       home-manager,
       nixos-wsl,
       nixvim,
-      nixpkgs-unstable,
       agenix,
       stylix,
       treefmt-nix,
