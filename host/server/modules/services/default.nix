@@ -11,7 +11,6 @@
     ./deluge.nix
     ./immich.nix
     ./jellyfin.nix
-    ./ollama.nix
     ./openssh.nix
     ./prometheus.nix
     ./radicale.nix
