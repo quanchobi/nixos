@@ -9,7 +9,6 @@
 
       tmux
       zsh
-      glxinfo
       gperftools
       pciutils
 

@@ -25,11 +25,11 @@
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nixvim.url = "github:quanchobi/nixvim";
 
-    stylix.url = "github:danth/stylix/release-25.05";
+    stylix.url = "github:danth/stylix/release-25.11";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -104,6 +104,11 @@
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                isNixOS = true;
+              };
+            }
             home-manager.nixosModules.default
             { system.gui.enable = true; }
           ];
@@ -128,8 +133,15 @@
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                isNixOS = true;
+              };
+            }
             home-manager.nixosModules.default
-            { system.gui.enable = false; }
+            {
+              system.gui.enable = false;
+            }
           ];
         };
 
@@ -152,6 +164,11 @@
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                isNixOS = true;
+              };
+            }
             home-manager.nixosModules.default
             { system.gui.enable = true; }
           ];
@@ -177,6 +194,11 @@
             agenix.nixosModules.default
 
             home-manager.inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                isNixOS = true;
+              };
+            }
             home-manager.nixosModules.default
             { system.gui.enable = false; }
           ];
